@@ -22,7 +22,7 @@ const getUniqueRandoms = (numRandoms, arr) => {
 const sanitizeMessage = (message) => {
     const BadWordFilter = require('bad-words')
     const swearFilter = new BadWordFilter()
-    swearFilter.removeWords( //TODO Add more as these come up
+    swearFilter.removeWords( // Add more of these as they come up
         "damn", 
         "goddamn", 
         "hell", 
@@ -32,6 +32,11 @@ const sanitizeMessage = (message) => {
     if (swearFilter.isProfane(message)){
         return ""
     }
+
+    /*const sanitizer = require('string-sanitizer')
+    const sanitizedMessage = sanitizer.sanitize.keepSpace(message)
+
+    return sanitizedMessage*/
 
     return message
 }
