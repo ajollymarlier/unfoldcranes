@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const { ObjectID } = require('mongodb')
 const { mongoose } = require('./db/mongoose');
 const { Crane } = require('./models/schema');
-const utils = require('./utils/utils')
+const utils = require('./utils/utils');
 
 /* 
 Adding new crane to database.
@@ -27,9 +27,15 @@ Expects req body structure of
 Returned JSON should be the database document added.
 */
 app.post('/cranes', async (req, res) => {
+    const sanitizedMessage = utils.sanitizeMessage(req.body.message)
+    if(sanitizedMessage == ""){
+        res.status(406).send()
+        return
+    }
+
     try{
         const addCraneRes = await Crane.insertMany([{
-            message: req.body.message,
+            message: sanitizedMessage,
             country: req.body.country,
             backgroundColor: req.body.backgroundColor,
             creationTime: req.body.creationTime

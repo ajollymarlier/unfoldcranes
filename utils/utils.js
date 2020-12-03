@@ -1,5 +1,6 @@
 "use strict"
 
+//Gets unique random elements
 const getUniqueRandoms = (numRandoms, arr) => {
     let randoms = []
     let filteredArr = []
@@ -15,6 +16,26 @@ const getUniqueRandoms = (numRandoms, arr) => {
 
     return filteredArr
 }
+
+// Message security and bad-words library usage
+// bad case: return ""
+const sanitizeMessage = (message) => {
+    const BadWordFilter = require('bad-words')
+    const swearFilter = new BadWordFilter()
+    swearFilter.removeWords( //TODO Add more as these come up
+        "damn", 
+        "goddamn", 
+        "hell", 
+        "hells"
+    )
+
+    if (swearFilter.isProfane(message)){
+        return ""
+    }
+
+    return message
+}
+
 
 const findNewCranes = (req, countryCranes) => {
     const filteredCranes = countryCranes.filter((countryCrane) => {
@@ -35,5 +56,6 @@ const findNewCranes = (req, countryCranes) => {
 
 module.exports = {
     getUniqueRandoms, 
-    findNewCranes
+    findNewCranes, 
+    sanitizeMessage
 }
