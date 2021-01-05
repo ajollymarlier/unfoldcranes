@@ -1,9 +1,17 @@
 import '../styles/CraneMenu.css'
 
+import { Button } from '@material-ui/core';
+
 const CraneMenu = () => {
     return(
-        <div>
-            This is the crane menu.
+        <div id="craneMenu">
+            <Button>
+                Sort By Country
+            </Button>
+
+            <Button>
+                Get New Cranes
+            </Button>
         </div>
     )
 }

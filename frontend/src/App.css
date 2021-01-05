@@ -2,11 +2,8 @@
   text-align: center;
 
   width: 74%;
-  height: 50%;
 
   margin-left: 13%;
-
-  overflow: auto;
 
   display: flex;
   flex-direction: column;

@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar setCurrentPage={setCurrentPage}/>
       {currentView}
     </div>
   );
