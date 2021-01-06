@@ -5,14 +5,19 @@
 }
 
 #craneCanvas {
-    display: flex;
+    /*display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center;*/
 
-    width: 80%;
-    background-color: aqua;
+    background-color: beige;
 }
 
 img {
-    width: 10%;
+    height: auto;
+    width: 75px;
+}
+
+img:hover {
+    cursor: pointer;
+    opacity: 70%;
 }

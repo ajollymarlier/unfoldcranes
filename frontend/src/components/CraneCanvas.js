@@ -2,26 +2,103 @@ import '../styles/CraneCanvas.css'
 
 import {useEffect} from 'react'
 import CraneMenu from './CraneMenu'
+import {Grid} from '@material-ui/core'
 const anime = require('animejs')
+
+//Animates crane entrance into crane canvas
+const addCraneAnimation = () => {
+
+}
+
+//Adds click listener to each image of a crane
+const addCraneClickListeners = () => {
+    const images = document.querySelectorAll('img')
+    for(let i = 0; i < images.length; i++){
+        images[i].addEventListener('click', (e) => {
+            //TODO add open crane function
+            e.currentTarget.src="mid_read_crane.png"
+        })
+    }
+}
 
 const CraneCanvas = () => {
     useEffect(() => {
-        /*anime({
-            targets: '#craneCanvas',
-            translateX: 250,
-            duration: 3000
-        })*/
+        addCraneAnimation()
+        addCraneClickListeners()
     })
 
     return(
         <div className="content">
-            <div id="craneCanvas">
-                <img src="main_page_mockup.png"/>
-                <img src="logo512.png"/>
-                <img src="main_page_mockup.png"/>
-                <img src="logo512.png"/>
-                <img src="tall_img.png"/>
-            </div>
+            <Grid 
+                id="craneCanvas"
+                container
+                item
+                direction="row"
+                justify="center"
+                alignItems="center"
+                xs={8}
+            >
+                <Grid 
+                    container
+                    item
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={3}
+                >
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="end_unread_crane.png"/>
+                </Grid>
+
+                <Grid 
+                    container
+                    item
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={3}
+                >
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="end_unread_crane.png"/>
+                </Grid>
+
+                <Grid
+                    container
+                    item
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={3}
+                >
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="end_unread_crane.png"/>
+                </Grid>
+
+                <Grid 
+                    container
+                    item
+                    direction="column"
+                    justify="center"
+                    alignItems="center"
+                    xs={3}
+                >
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="mid_unread_crane.png"/>
+                    <img src="end_unread_crane.png"/>
+                </Grid>
+            </Grid>
+            
 
             <CraneMenu/>
         </div>
