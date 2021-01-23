@@ -30,6 +30,8 @@ const currentCranes = [
     {message: "Crane20 Message"}
 ]
 
+const totalNumCranes = 136
+
 //Animates crane entrance into crane canvas
 const addCraneAnimation = () => {
     //TODO maybe add load cranes button and call this when clicked
@@ -81,6 +83,8 @@ const CraneCanvas = () => {
     }, [])
 
     return(
+        <div>
+
         <div className="content">
             <Dialog
                 open={open}
@@ -189,9 +193,10 @@ const CraneCanvas = () => {
                     <img className="endStringImg" id="crane20" alt="" src="end_unread_crane.png"/>
                 </Grid>
             </Grid>
-            
+            <CraneMenu/>              
+        </div>
 
-            <CraneMenu/>
+            <p>{totalNumCranes} cranes and counting...</p>  
         </div>
     )
 }

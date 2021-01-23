@@ -10,7 +10,6 @@ const NavBar = (props) => {
             <div id="buttons">
                 <Button 
                     variant="outlined"
-                    color="primary"
                     onClick={() => {
                         props.setCurrentPage("CraneCanvas")
                     }}
@@ -19,7 +18,6 @@ const NavBar = (props) => {
                 </Button>
                 <Button
                     variant="outlined"
-                    color="primary"
                     onClick={() => {
                         props.setCurrentPage("AboutView")
                     }}
@@ -28,7 +26,6 @@ const NavBar = (props) => {
                 </Button>
                 <Button 
                     variant="outlined"
-                    color="primary"
                     onClick={() => {
                         props.setCurrentPage("CraneSubmission")
                     }}
@@ -37,7 +34,6 @@ const NavBar = (props) => {
                 </Button>
                 <Button 
                     variant="outlined"
-                    color="primary"
                     onClick={() => {
                         window.location = "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/donate"
                     }}

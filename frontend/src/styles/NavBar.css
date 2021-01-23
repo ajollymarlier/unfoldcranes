@@ -1,11 +1,19 @@
 #navBar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
 
-    padding: 3%;
+    padding-left: 3%;
+    padding-top: 3%;
+    padding-bottom: 0.5%;    
+    margin-left: 12.3%;
 }
 
 #buttons {
     margin-top: 2%;
+}
+
+h1{
+    padding-right: 32.5%;
+    color: #FF4500;
 }
