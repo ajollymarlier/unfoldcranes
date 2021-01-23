@@ -1,9 +1,34 @@
+/* eslint-disable no-loop-func */
 import '../styles/CraneCanvas.css'
 
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import CraneMenu from './CraneMenu'
-import {Grid, Button} from '@material-ui/core'
+import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button} from '@material-ui/core'
 import anime from 'animejs/lib/anime.es.js' 
+
+let currentDisplayedMessage = "This is a message of a crane"
+const currentCranes = [
+    {message: "Crane1 Message"},
+    {message: "Crane2 Message"},
+    {message: "Crane3 Message"},
+    {message: "Crane4 Message"},
+    {message: "Crane5 Message"},
+    {message: "Crane6 Message"},
+    {message: "Crane7 Message"},
+    {message: "Crane8 Message"},
+    {message: "Crane9 Message"},
+    {message: "Crane10 Message"},
+    {message: "Crane11 Message"},
+    {message: "Crane12 Message"},
+    {message: "Crane13 Message"},
+    {message: "Crane14 Message"},
+    {message: "Crane15 Message"},
+    {message: "Crane16 Message"},
+    {message: "Crane17 Message"},
+    {message: "Crane18 Message"},
+    {message: "Crane19 Message"},
+    {message: "Crane20 Message"}
+]
 
 //Animates crane entrance into crane canvas
 const addCraneAnimation = () => {
@@ -16,33 +41,77 @@ const addCraneAnimation = () => {
     })
 }
 
+const getCraneNumber = (craneName) => {
+    while (isNaN(parseInt(craneName))){
+        craneName = craneName.substring(1)
+    }
+
+    return parseInt(craneName)
+}
+
 //Adds click listener to each image of a crane
-const addCraneClickListeners = () => {
+const addCraneClickListeners = (setOpen) => {
     const midImages = document.querySelectorAll('.midStringImg')
     for(let i = 0; i < midImages.length; i++){
         midImages[i].addEventListener('click', (e) => {
-            //TODO add open crane function
+            currentDisplayedMessage = currentCranes[getCraneNumber(e.currentTarget.id) - 1].message
+
             e.currentTarget.src="mid_read_crane.png"
+            setOpen(true)
         })
     }
 
     const endImages = document.querySelectorAll('.endStringImg')
     for(let i = 0; i < endImages.length; i++){
         endImages[i].addEventListener('click', (e) => {
-            //TODO add open crane function
+            currentDisplayedMessage = currentCranes[getCraneNumber(e.currentTarget.id, e) - 1].message
+
             e.currentTarget.src="end_read_crane.png"
+            setOpen(true)
         })
     }
 }
 
 const CraneCanvas = () => {
+    const [open, setOpen] = useState(false)
+
     useEffect(() => {
         addCraneAnimation()
-        addCraneClickListeners()
-    })
+        addCraneClickListeners(setOpen)
+    }, [])
 
     return(
         <div className="content">
+            <Dialog
+                open={open}
+                onClose={() => {
+                    setOpen(false)
+                }}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">
+                    Message
+                </DialogTitle>
+                
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        {currentDisplayedMessage}
+                    </DialogContentText>
+                </DialogContent>
+
+                <DialogActions>
+                    <Button
+                        onClick={() => {
+                            setOpen(false)
+                        }}
+                        color="primary"
+                    >
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
             <Grid 
                 id="craneCanvas"
                 container

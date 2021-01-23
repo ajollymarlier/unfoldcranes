@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core'
 const NavBar = (props) => {
     return(
         <div id="navBar">
-            <h1>Cranes for Thought</h1>
+            <h1>Unfold</h1>
             <div id="buttons">
                 <Button 
                     variant="outlined"
