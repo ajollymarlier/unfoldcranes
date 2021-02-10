@@ -8,6 +8,7 @@ import CraneSubmission from './components/CraneSubmission'
 import NavBar from './components/NavBar'
 import CraneMenu from './components/CraneMenu';
 
+//Testing comment
 const App = () => {
   const [currentPage, setCurrentPage] = useState("CraneCanvas")
 
