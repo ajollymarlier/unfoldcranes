@@ -30,8 +30,6 @@ const currentCranes = [
     {message: "Crane20 Message"}
 ]
 
-const totalNumCranes = 136
-
 //Animates crane entrance into crane canvas
 const addCraneAnimation = () => {
     //TODO maybe add load cranes button and call this when clicked

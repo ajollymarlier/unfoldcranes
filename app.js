@@ -84,6 +84,12 @@ app.get('/cranes/:country', async (req, res) => {
     }
 })
 
+//Returns number of cranes in system
+app.get('/craneCount', async (req, res) => {
+    const craneCount = await Crane.count()
+    res.send({numCranes: craneCount})
+})
+
 // Connection confirmation dialog
 const port = process.env.PORT || 5000
 app.listen(port, () => {
