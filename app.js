@@ -7,6 +7,9 @@ const app = express();
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 
+/*const path = require("path")
+app.use(express.static(path.join(__dirname, 'frontend/public')))*/
+
 // Mongo and Mongoose
 const { ObjectID } = require('mongodb')
 const { mongoose } = require('./db/mongoose');
@@ -86,9 +89,16 @@ app.get('/cranes/:country', async (req, res) => {
 
 //Returns number of cranes in system
 app.get('/craneCount', async (req, res) => {
-    const craneCount = await Crane.count()
+    console.log("reached craneCount")
+
+    const craneCount = await Crane.countDocuments()
     res.send({numCranes: craneCount})
 })
+
+//Starting path
+/*app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "public", "index.html"));}
+)*/
 
 // Connection confirmation dialog
 const port = process.env.PORT || 5000
