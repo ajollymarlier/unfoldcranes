@@ -53,6 +53,39 @@ app.post('/cranes', async (req, res) => {
 })
 
 /*
+Getting target number of cranes from all countries
+
+Expects req body structure of 
+{
+    numCranes: Number,
+    currentCranes: List[Crane]
+}
+
+The res body should contain the structure
+{
+    resCranes: // list of returned cranes length <= <numCranes>
+                    smaller length would occur if not enough cranes exist for the given country
+}
+*/
+app.put('/cranes', async (req, res) => {
+    try{
+        console.log("Hit all cranes")
+
+        const allCranes = await Crane.find()
+        
+        //TODO need more optimized search for later
+        const filteredCranes = utils.findNewCranes(req, allCranes)
+
+        const finalCranes = utils.getUniqueRandoms(req.body.numCranes, filteredCranes)
+        res.send(finalCranes)
+    }
+    catch (err){
+        //throw err
+        res.status(500).send()
+    }
+})
+
+/*
 Getting target number of cranes from target country
 
 Expects req body structure of 
@@ -67,7 +100,7 @@ The res body should contain the structure
                     smaller length would occur if not enough cranes exist for the given country
 }
 */
-app.get('/cranes/:country', async (req, res) => {
+app.put('/cranes/:country', async (req, res) => {
     //! For testing all cranes only
     /*const allCraneRes = await Crane.find()
     res.send(allCraneRes)*/
@@ -89,7 +122,7 @@ app.get('/cranes/:country', async (req, res) => {
 
 //Returns number of cranes in system
 app.get('/craneCount', async (req, res) => {
-    console.log("reached craneCount")
+    //console.log("reached craneCount")
 
     const craneCount = await Crane.countDocuments()
     res.send({numCranes: craneCount})

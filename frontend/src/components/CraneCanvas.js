@@ -30,8 +30,6 @@ const currentCranes = [
     {message: "Crane20 Message"}
 ]
 
-let totalNumCranes = 100
-
 //Animates crane entrance into crane canvas
 const addCraneAnimation = () => {
     //TODO maybe add load cranes button and call this when clicked
@@ -90,13 +88,23 @@ const getCraneCount = async () => {
 const CraneCanvas = () => {
     const [open, setOpen] = useState(false)
     const [craneCount, setCraneCount] = useState(0)
+    const [currentCranes, setCurrentCranes] = useState([])
 
     useEffect(async () => {
         addCraneAnimation()
         addCraneClickListeners(setOpen)
         
+        //Gets number of cranes in database
         const numCranes = await getCraneCount()
         setCraneCount(numCranes)
+
+        const getCranesRes = await fetch('/cranes', {
+            method: 'PUT',
+            headers: {"content-type": "application/json"},
+            body: JSON.stringify({numCranes: 25, currentCranes: []})
+        })
+
+        setCurrentCranes(getCranesRes)
     }, [])
 
     return(
@@ -213,7 +221,7 @@ const CraneCanvas = () => {
             <CraneMenu/>              
         </div>
 
-            <p>{craneCount} cranes and counting...</p>  
+            <p>{craneCount} cranes and counting...</p>
         </div>
     )
 }

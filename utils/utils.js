@@ -5,12 +5,14 @@ const getUniqueRandoms = (numRandoms, arr) => {
     let randoms = []
     let filteredArr = []
 
-    while(randoms.length < numRandoms){
+    let i = arr.length
+    while(randoms.length < numRandoms && i > 0){
         let r = Math.floor(Math.random() * arr.length)
 
         if(randoms.indexOf(r) === -1){
             randoms.push(r)
             filteredArr.push(arr[r])
+            i--
         }
     }
 
