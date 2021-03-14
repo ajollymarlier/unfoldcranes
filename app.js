@@ -69,8 +69,6 @@ The res body should contain the structure
 */
 app.put('/cranes', async (req, res) => {
     try{
-        console.log("Hit all cranes")
-
         const allCranes = await Crane.find()
         
         //TODO need more optimized search for later
