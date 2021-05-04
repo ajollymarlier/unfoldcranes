@@ -259,7 +259,7 @@ const countryCodes = [
     "ZWE Zimbabwe"
 ]
 
-const CraneMenu = () => {
+const CraneMenu = (props) => {
     const [anchorEl, setAnchorEl] = useState(null)
 
     const handleFilterClick = (event) => {
@@ -280,8 +280,7 @@ const CraneMenu = () => {
                 renderInput={(params) => <TextField {...params} label="Filter By Country" variant="outlined" />}
             />
 
-            <Button onClick={() => {
-                //TODO change to non-reload retrieval to facilitate country filter
+            <Button id="newCranes" onClick={() => {
                 location.reload()
             }}>
                 Get New Cranes

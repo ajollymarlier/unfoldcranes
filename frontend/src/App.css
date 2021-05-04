@@ -1,16 +1,15 @@
 body{
-  background-color: #97eabf;
+  /*background-color: #97eabf;*/
+  background-image: url("wallpaper.jpg");
 }
 
 .App {
   text-align: center;
 
-  width: 74%;
 
-  margin-left: 13%;
-  margin-top: 3%;
+  /*margin-left: 13%;*/
 
-  display: flex;
+  /*display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;*/
 }

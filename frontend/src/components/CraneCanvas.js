@@ -172,7 +172,7 @@ const CraneCanvas = () => {
                 >        
                     {checkStringTopRender(currentCranes, 5)}
                     {currentCranes.map((crane, i) => {
-                        //Stops after getting cranes #0-4
+                        //Stops after getting cranes #5-9
                         if (i <= 4 || i >= 10){
                             return
                         }
@@ -196,12 +196,12 @@ const CraneCanvas = () => {
                 >
                     {checkStringTopRender(currentCranes, 10)}
                     {currentCranes.map((crane, i) => {
-                        //Stops after getting cranes #0-4
-                        if (i <= 10 || i >= 15){
+                        //Stops after getting cranes #10-14
+                        if (i <= 10 || i >= 16){
                             return
                         }
 
-                        if (i == currentCranes.length - 1 || i == 14){
+                        if (i == currentCranes.length - 1 || i == 15){
                             return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src="end_unread_crane.png"/>
                         }else{
                             return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src="mid_unread_crane.png"/>
@@ -220,8 +220,8 @@ const CraneCanvas = () => {
                 >
                     {checkStringTopRender(currentCranes, 15)}
                     {currentCranes.map((crane, i) => {                        
-                        //Stops after getting cranes #0-4
-                        if (i <= 15){
+                        //Stops after getting cranes #15-19
+                        if (i <= 14){
                             return
                         }
 
@@ -232,10 +232,10 @@ const CraneCanvas = () => {
                         }
                     })}
                 </Grid>
-            </Grid>
-            <CraneMenu/>              
+            </Grid>  
+            <CraneMenu id="craneMenu"/>            
         </div>
-
+            <p>The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note.</p>
             <p>{craneCount} cranes and counting...</p>
         </div>
     )

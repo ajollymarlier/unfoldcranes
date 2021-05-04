@@ -3,17 +3,18 @@
     flex-direction: row;
     justify-content: left;
 
-    padding-left: 3%;
-    padding-top: 3%;
-    padding-bottom: 0.5%;    
-    margin-left: 12.3%;
+    padding-bottom: 0.5%;   
+    background-color: white; 
+    /*opacity: 0.5;*/
 }
 
 #buttons {
-    margin-top: 2%;
+    margin-top: 1.35%;
+    /*margin-left: 1%;*/
 }
 
 h1{
-    padding-right: 32.5%;
+    padding-left: 2%;
+    padding-right: 31%;
     color: #FF4500;
 }

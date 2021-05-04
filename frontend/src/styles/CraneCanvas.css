@@ -3,16 +3,16 @@
     flex-direction: row;
     justify-content: center;
 
-    transform: translate(6%);
+    /*transform: translate(6%);*/
 }
 
 #craneCanvas {
-    /*display: flex;
+    display: flex;
     flex-direction: row;
-    justify-content: center;*/
+    justify-content: center;
 
     max-height: 400px;
-    background-color: beige;
+    max-width: 40%;
     overflow: hidden;
 }
 
@@ -30,6 +30,12 @@ img {
 
 p{
     text-align: left;
-    margin-left: 15.3%;
-    margin-top: 1%;
+    margin-left: 24.9%;
+    margin-top: 0.5%;
+}
+
+#craneMenu{
+    position: absolute;
+    right: 20%;
+    top: 30%
 }
