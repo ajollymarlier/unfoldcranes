@@ -233,7 +233,7 @@ const CraneCanvas = () => {
                     })}
                 </Grid>
             </Grid>  
-            <CraneMenu id="craneMenu"/>            
+            <CraneMenu id="craneMenu"/>          
         </div>
             <p>The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note.</p>
             <p>{craneCount} cranes and counting...</p>

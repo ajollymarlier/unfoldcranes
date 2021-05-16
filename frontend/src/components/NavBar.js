@@ -1,14 +1,23 @@
 import '../styles/NavBar.css'
 
 //import Button from '@material-ui/core/Button';
-import { Button } from '@material-ui/core'
+import { Button, Paper } from '@material-ui/core'
 
 const NavBar = (props) => {
     return(
         <div id="navBar">
             <h1>Unfold</h1>
             <div id="buttons">
-                <Button 
+                <Paper >
+                    <img src="about.png"/>
+                </Paper>
+                <Paper>
+                    <img src="submit.png"/>
+                </Paper>
+                <Paper>
+                    <img src="contact.png"/>
+                </Paper>
+                {/*<Button 
                     variant="outlined"
                     onClick={() => {
                         props.setCurrentPage("CraneCanvas")
@@ -39,7 +48,7 @@ const NavBar = (props) => {
                     }}
                 >
                         Donate
-                </Button>
+                </Button>*/}
             </div>
         </div>
     )

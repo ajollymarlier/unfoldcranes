@@ -11,14 +11,14 @@
     flex-direction: row;
     justify-content: center;
 
-    max-height: 400px;
+    max-height: 550px;
     max-width: 40%;
     overflow: hidden;
 }
 
 img {
     height: auto;
-    width: 75px;
+    width: 100px;
 
     transform: translateY(-575px);
 }
