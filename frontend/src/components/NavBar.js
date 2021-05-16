@@ -9,13 +9,34 @@ const NavBar = (props) => {
             <h1>Unfold</h1>
             <div id="buttons">
                 <Paper >
-                    <img src="about.png"/>
+                    <Button 
+                        variant="outlined"
+                        onClick={() => {
+                            props.setCurrentPage("CraneCanvas")
+                        }}
+                    >
+                        <img src="about.png"/>
+                    </Button>
                 </Paper>
                 <Paper>
-                    <img src="submit.png"/>
+                    <Button
+                        variant="outlined"
+                        onClick={() => {
+                            props.setCurrentPage("AboutView")
+                        }}
+                    >
+                            <img src="submit.png"/>
+                    </Button>
                 </Paper>
                 <Paper>
-                    <img src="contact.png"/>
+                    <Button 
+                        variant="outlined"
+                        onClick={() => {
+                            props.setCurrentPage("CraneSubmission")
+                        }}
+                    >
+                            <img src="contact.png"/>
+                    </Button>
                 </Paper>
                 {/*<Button 
                     variant="outlined"
