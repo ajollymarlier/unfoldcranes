@@ -53,7 +53,7 @@ const AboutView = () => {
 				<Grid item>
 					<Card className={classes.card}>
 						<CardHeader title="Arun Jolly Marlier" subheader="Lead developer" />
-						<CardMedia className={classes.media} image="picture_of_me.jpg" title="Arun" />
+						<CardMedia className={classes.media} image="arun.jpg" title="Arun" />
 
 						<CardContent>
 							<Typography variant="body2" color="textSecondary" component="p">
@@ -71,7 +71,7 @@ const AboutView = () => {
 				<Grid item>
 					<Card className={classes.card}>
 						<CardHeader title="Jocelyn Tamura" subheader="Graphics Designer" />
-						<CardMedia className={classes.media} image="picture_of_me.jpg" title="Jocelyn" />
+						<CardMedia className={classes.media} image="jocelyn.jpg" title="Jocelyn" />
 
 						<CardContent>
 							<Typography variant="body2" color="textSecondary" component="p">
