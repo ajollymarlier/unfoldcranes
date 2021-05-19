@@ -11,7 +11,9 @@ const useStyles = makeStyles((theme) => ({
 		minheight: 400,
 		alignContent: 'center',
 		backgroundColor: 'transparent',
-		boxShadow: 'none'
+		boxShadow: 'none',
+		fontFamily: 'carrois_gothicregular',
+		color: '#070048'
 	},
 	media: {
 		alignSelf: 'center',
@@ -25,7 +27,7 @@ const AboutView = () => {
 
 	return (
 		<div>
-			<h2>About Unfold</h2>
+			<h2>ABOUT UNFOLD</h2>
 			<p>
 				The Unfold project was founded by four University of Toronto students in September 2020. We wanted to
 				create a way for people to connect during the pandemic. Our vision is that Unfold will provide a safe
@@ -41,7 +43,7 @@ const AboutView = () => {
 				granted.
 			</p>
 
-			<h2>Our Team</h2>
+			<h2>OUR TEAM</h2>
 			<Grid
 				container
 				className={classes.root}
@@ -55,7 +57,7 @@ const AboutView = () => {
 						<CardHeader title="Arun Jolly Marlier" subheader="Lead developer" />
 						<CardMedia className={classes.media} image="arun.jpg" title="Arun" />
 
-						<CardContent>
+						<CardContent className={classes.cardContent}>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Arun is a Computer Science student at the University of Toronto. An avid musician, and
 								self-purported tech geek, he strives to find different ways to reach people and affect
@@ -73,7 +75,7 @@ const AboutView = () => {
 						<CardHeader title="Jocelyn Tamura" subheader="Graphics Designer" />
 						<CardMedia className={classes.media} image="jocelyn.jpg" title="Jocelyn" />
 
-						<CardContent>
+						<CardContent className={classes.cardContent}>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Jocelyn is a Global Health and Anthropology student at the University of Toronto. As an
 								origami workshop volunteer at a children’s hospital, she noticed that origami helped
@@ -103,7 +105,7 @@ const AboutView = () => {
 						<CardHeader title="Yvonne Yang" subheader="Frontend developer" />
 						<CardMedia className={classes.media} image="yvonne.jpg" title="Yvonne" />
 
-						<CardContent>
+						<CardContent className={classes.cardContent}>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Yvonne is in Computer Engineering at the University of Toronto. As someone who loves
 								programming as much as art, she enjoyed contributing to this project, which also
@@ -117,7 +119,7 @@ const AboutView = () => {
 					</Card>
 				</Grid>
 			</Grid>
-			<h2>Contact</h2>
+			<h2>CONTACT</h2>
 			<p id="contact">
 				Have any comments or questions? We'd love to hear from you!<br />
 				<br />

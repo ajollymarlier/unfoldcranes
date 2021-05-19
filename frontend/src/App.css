@@ -1,15 +1,36 @@
-body{
-  /*background-color: #97eabf;*/
-  background-image: url("wallpaper.png");
+@font-face {
+	font-family: 'carrois_gothicregular';
+	src: url('styles/fonts/avenir-next-condensed-webfont.woff2') format('woff2'),
+		url('styles/fonts/avenir-next-condensed-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: "carrois_gothicregular";
+}
+
+p {
+	text-align: left;
+	line-height: 120%;
+	margin-left: 24.9%;
+	margin-right: 24.9%;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
+	color: #070048;
+}
+
+body {
+	/*background-color: #97eabf;*/
+	background-image: url("wallpaper.png");
 }
 
 .App {
-  text-align: center;
+	text-align: center;
 
+	/*margin-left: 13%;*/
 
-  /*margin-left: 13%;*/
-
-  /*display: flex;
+	/*display: flex;
   flex-direction: column;
   justify-content: center;*/
 }
