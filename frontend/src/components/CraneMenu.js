@@ -259,30 +259,33 @@ const countryCodes = [
     "ZWE Zimbabwe"
 ]
 
+let currentCountryCode = ""
+
 const CraneMenu = (props) => {
-    const [anchorEl, setAnchorEl] = useState(null)
-
-    const handleFilterClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    
-      const handleClose = () => {
-        setAnchorEl(null);
-    };
-
     //! Popup filter menu not working rn
     return(
         <div id="craneMenu">
             <Autocomplete
                 options={countryCodes}
                 getOptionLabel={(code) => code.substring(4, code.length)}
-                style={{ width: 174 }}
+                onChange={(event, value) => {
+                    if (value !== null){
+                        currentCountryCode = value.substring(0, 3)
+                    }else{
+                        currentCountryCode = ""
+                        //! Clicking doesnt work after clicking with value of ""
+                    }
+                }}
                 renderInput={(params) => <TextField {...params} label="Filter By Country" variant="outlined" />}
             />
 
-            <Button id="newCranes" onClick={() => {
-                location.reload()
-            }}>
+            <Button id="newCranes" onClick={async () => {
+                const newCranes = await props.countryFilter(currentCountryCode) //TODO make dynamic after
+
+                console.log(newCranes)
+                await props.craneStateUpdate(newCranes) //! this showing correct # cranes but not always correct cranes
+                props.runAnimation() //TODO make animation run again on new load
+            }} variant="contained" color="primary">
                 Get New Cranes
             </Button>
         </div>

@@ -15,7 +15,7 @@ const NavBar = (props) => {
                             props.setCurrentPage("CraneCanvas")
                         }}
                     >
-                        <img src="about.png"/>
+                        <img src="jocelyn.jpg"/>
                     </Button>
                 </Paper>
                 <Paper>

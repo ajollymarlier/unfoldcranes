@@ -99,14 +99,12 @@ The res body should contain the structure
 }
 */
 app.put('/cranes/:country', async (req, res) => {
-    //! For testing all cranes only
-    /*const allCraneRes = await Crane.find()
-    res.send(allCraneRes)*/
+    const allCraneRes = await Crane.find()
+    res.send(allCraneRes)
 
     try{
         const countryCranes = await Crane.find({country: req.params.country})
         
-        //TODO need more optimized search for later
         const filteredCranes = utils.findNewCranes(req, countryCranes)
 
         const finalCranes = utils.getUniqueRandoms(req.body.numCranes, filteredCranes)

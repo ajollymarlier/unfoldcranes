@@ -11,8 +11,8 @@
     flex-direction: row;
     justify-content: center;
 
-    max-height: 550px;
-    max-width: 40%;
+    /*max-height: 550px;*/
+    max-width: 70%;
     overflow: hidden;
 }
 
@@ -20,7 +20,7 @@ img {
     height: auto;
     width: 100px;
 
-    transform: translateY(-575px);
+    transform: translateY(-520px);
 }
 
 .midStringImg:hover, .endStringImg:hover {
@@ -29,8 +29,7 @@ img {
 }
 
 
-#craneMenu{
-    position: absolute;
-    right: 20%;
-    top: 30%
+#craneMenuDiv{
+    width: 180px;
+    margin-bottom: 30px;
 }

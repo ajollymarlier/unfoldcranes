@@ -11,12 +11,14 @@ let currentDisplayedMessage = "This is a message of a crane"
 //Animates crane entrance into crane canvas
 const addCraneAnimation = () => {
     //TODO maybe add load cranes button and call this when clicked
-    anime({
+    const dropAnimation = anime({
         targets: '#craneString',
         translateY: 450,
         duration: 2500,
         delay: anime.stagger(200, {start: 400})
     })
+
+    dropAnimation.restart() //!not working
 }
 
 const getCraneNumber = (craneName) => {
@@ -69,6 +71,20 @@ const checkStringTopRender = (currentCranes, min) => {
     }
 
     return
+}
+
+const filterCountryCranes = async (countryCode) =>{
+    const craneCountRes = await fetch(
+        '/cranes/' + countryCode,
+        {
+            method: 'PUT',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify({numCranes: 20, currentCranes: []})
+        }
+    )
+
+    const resBody = await craneCountRes.json()
+    return resBody
 }
 
 const CraneCanvas = () => {
@@ -128,6 +144,7 @@ const CraneCanvas = () => {
                 </DialogActions>
             </Dialog>
 
+            {/*!When dealing with less than multiple of 5, clicking shows mid crane*/}           
             <Grid 
                 id="craneCanvas"
                 container
@@ -135,7 +152,7 @@ const CraneCanvas = () => {
                 direction="row"
                 justify="center"
                 alignItems="center"
-                xs={8}
+                xs={12}
             >
                 <Grid
                     id="craneString" 
@@ -144,7 +161,7 @@ const CraneCanvas = () => {
                     direction="column"
                     justify="center"
                     alignItems="center"
-                    xs={3}
+                    xs={2}
                 >   
                     {checkStringTopRender(currentCranes, 0)}
                     {currentCranes.map((crane, i) => {
@@ -168,7 +185,7 @@ const CraneCanvas = () => {
                     direction="column"
                     justify="center"
                     alignItems="center"
-                    xs={3}
+                    xs={2}
                 >        
                     {checkStringTopRender(currentCranes, 5)}
                     {currentCranes.map((crane, i) => {
@@ -192,7 +209,7 @@ const CraneCanvas = () => {
                     direction="column"
                     justify="center"
                     alignItems="center"
-                    xs={3}
+                    xs={2}
                 >
                     {checkStringTopRender(currentCranes, 10)}
                     {currentCranes.map((crane, i) => {
@@ -216,7 +233,7 @@ const CraneCanvas = () => {
                     direction="column"
                     justify="center"
                     alignItems="center"
-                    xs={3}
+                    xs={2}
                 >
                     {checkStringTopRender(currentCranes, 15)}
                     {currentCranes.map((crane, i) => {                        
@@ -232,11 +249,13 @@ const CraneCanvas = () => {
                         }
                     })}
                 </Grid>
-            </Grid>  
-            <CraneMenu id="craneMenu"/>          
+                <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} craneStateUpdate={setCurrentCranes} runAnimation={addCraneAnimation}/></div>
+            </Grid>          
         </div>
-            <p>The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note.</p>
-            <p>{craneCount} cranes and counting...</p>
+            <div>
+                <p>The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note.</p>
+                <p>{craneCount} cranes and counting...</p>
+            </div>
         </div>
     )
 }
