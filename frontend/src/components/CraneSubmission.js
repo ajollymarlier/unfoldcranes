@@ -275,28 +275,19 @@ const useStyles = makeStyles((theme) => ({
 function CraneSubmission() {
     const classes = useStyles();
     var [countryCode, message, name, email] = React.useState('')        //TODO: incorrect use of hooks, rewrite
-    var [backgroundColor] = React.useState('Purple')        //TODO: CHANGE THIS
     var [activeColor, setActiveColor] = React.useState(colorData[0].color)
 
     var submit = async () => {
-        //alert('hallo');
         const newCrane = await fetch('/cranes', {
             method: 'POST',
             headers: {"content-type": "application/json"},
             body: JSON.stringify({
                 message: message,
                 country: countryCode,
-                backgroundColor: backgroundColor,
+                backgroundColor: activeColor,
                 creationTime: new Date().toLocaleString()
             })
         })
-
-        //let craneString = await newCrane.json().then(() => {
-        //    alert(craneString)}) 
-    }
-
-    var colorClicked = () => {
-        alert(this.classes)
     }
 
     return (
@@ -340,7 +331,7 @@ function CraneSubmission() {
                                 <Grid container justify="flex-start">
                                     <GridList cols={colorData.length} cellHeight="auto">
                                         {colorData.map((item) => 
-                                            <GridListTile key={item.color} className='haaaallooo' onClick={() => {setActiveColor(item.color)}}>
+                                            <GridListTile key={item.color} onClick={() => {setActiveColor(item.color)}}>
                                                 <img className={item.color == activeColor ? 'active-color color' : 'normal-color color'} srcset={`${item.src}`}/>
                                             </GridListTile>
                                             )}
