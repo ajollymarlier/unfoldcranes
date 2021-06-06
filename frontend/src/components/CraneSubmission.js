@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridList from '@material-ui/core/GridList';
 
 // TODO: REMOVE THIS
 const countryCodes = [
@@ -272,24 +274,20 @@ const useStyles = makeStyles((theme) => ({
   
 function CraneSubmission() {
     const classes = useStyles();
-    var [countryCode, message, name, email] = React.useState('')
-    var [backgroundColor] = React.useState('Purple')        //TODO: CHANGE THIS
+    var [countryCode, message, name, email] = React.useState('')        //TODO: incorrect use of hooks, rewrite
+    var [activeColor, setActiveColor] = React.useState(colorData[0].color)
 
     var submit = async () => {
-        //alert('hallo');
         const newCrane = await fetch('/cranes', {
             method: 'POST',
             headers: {"content-type": "application/json"},
             body: JSON.stringify({
                 message: message,
                 country: countryCode,
-                backgroundColor: backgroundColor,
+                backgroundColor: activeColor,
                 creationTime: new Date().toLocaleString()
             })
         })
-
-        //let craneString = await newCrane.json().then(() => {
-        //    alert(craneString)}) 
     }
 
     return (
@@ -330,7 +328,16 @@ function CraneSubmission() {
                                     }}
                                 />
                                 </Grid>
-                                <Grid container justify="flex-end"><Button variant="contained" onClick={submit}>Submit</Button></Grid>
+                                <Grid container justify="flex-start">
+                                    <GridList cols={colorData.length} cellHeight="auto">
+                                        {colorData.map((item) => 
+                                            <GridListTile key={item.color} onClick={() => {setActiveColor(item.color)}}>
+                                                <img className={item.color == activeColor ? 'active-color color' : 'normal-color color'} srcset={`${item.src}`}/>
+                                            </GridListTile>
+                                            )}
+                                    </GridList>
+                                </Grid>
+                                <Button variant="contained" onClick={submit}>Submit</Button>
                         </Grid>
                         </form>
                     </Grid>
@@ -339,5 +346,36 @@ function CraneSubmission() {
         </div>
     );
 }
+
+const colorData = [
+    {
+        src: "blue-purple.png",
+        color: "blue-purple"
+    },
+    {
+        src: "green-blue.png",
+        color: "green-blue"
+    },
+    {
+        src: "orange-yellow.png",
+        color: "orange-yellow"
+    },
+    {
+        src: "pink-red.png",
+        color: "pink-red"
+    },
+    {
+        src: "purple-pink.png",
+        color: "purple-pink"
+    },
+    {
+        src: "red-orange.png",
+        color: "red-orange"
+    },
+    {
+        src: "yellow-green.png",
+        color: "yellow-green"
+    },
+]
 
 export default CraneSubmission
