@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button, Paper , Grid } from '@material-ui/core'
  import AboutImage from '../about.png'
  import SubmitImage from '../submit.png'
- //import HomeImage from '../home.png'
+ import HomeImage from '../home.png'
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "1.35%"
     },
     canvas:{
-        width: "100px",
+        width: "90px",
         height: "28px",
-        backgroundImage: `url(${AboutImage})`, // TODO change this to home
+        backgroundImage: `url(${HomeImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
     },
