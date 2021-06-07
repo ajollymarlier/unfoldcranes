@@ -108,7 +108,7 @@ const CraneCanvas = () => {
                 body: JSON.stringify({numCranes: 20, currentCranes: []})
             })
 
-            //!End cranes are showing up as blank
+            //!End cranes are showing up as blank message
 
             let getCranesList = await getCranesRes.json() 
             console.log(getCranesList) //TODO remove later       
