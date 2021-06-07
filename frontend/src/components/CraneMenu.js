@@ -1,10 +1,8 @@
 /* eslint-disable no-restricted-globals */
 import '../styles/CraneMenu.css'
 
-import { useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import {Autocomplete} from '@material-ui/lab'
-import { ReadPreference } from 'mongodb';
 
 //TODO replace with text file reading later
 const countryCodes = [
@@ -259,10 +257,9 @@ const countryCodes = [
     "ZWE Zimbabwe"
 ]
 
-let currentCountryCode = ""
-
 const CraneMenu = (props) => {
-    //! Popup filter menu not working rn
+    let currentCountryCode = ""
+
     return(
         <div id="craneMenu">
             <Autocomplete
@@ -273,18 +270,14 @@ const CraneMenu = (props) => {
                         currentCountryCode = value.substring(0, 3)
                     }else{
                         currentCountryCode = ""
-                        //! Clicking doesnt work after clicking with value of ""
                     }
                 }}
                 renderInput={(params) => <TextField {...params} label="Filter By Country" variant="outlined" />}
             />
 
             <Button id="newCranes" onClick={async () => {
-                const newCranes = await props.countryFilter(currentCountryCode) //TODO make dynamic after
+                await props.setCurrentCountryCode(currentCountryCode)
 
-                console.log(newCranes)
-                await props.craneStateUpdate(newCranes) //! this showing correct # cranes but not always correct cranes
-                props.runAnimation() //TODO make animation run again on new load
             }} variant="contained" color="primary">
                 Get New Cranes
             </Button>

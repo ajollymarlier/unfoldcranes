@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'
 
@@ -6,7 +5,6 @@ import CraneCanvas from './components/CraneCanvas'
 import AboutView from './components/AboutView'
 import CraneSubmission from './components/CraneSubmission'
 import NavBar from './components/NavBar'
-import CraneMenu from './components/CraneMenu';
 
 //Testing comment
 const App = () => {
