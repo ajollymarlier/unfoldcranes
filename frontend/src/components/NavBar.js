@@ -1,43 +1,105 @@
 import '../styles/NavBar.css'
 
-//import Button from '@material-ui/core/Button';
-import { Button, Paper } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
+import { Button, Paper , Grid } from '@material-ui/core'
+ import AboutImage from '../about.png'
+ import SubmitImage from '../submit.png'
+ //import HomeImage from '../home.png'
+
+const useStyles = makeStyles((theme) => ({
+    root:{
+        flexGrow: 1
+    },
+    gridItem:{
+        marginTop: "1.35%"
+    },
+    canvas:{
+        width: "100px",
+        height: "28px",
+        backgroundImage: `url(${AboutImage})`, // TODO change this to home
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+    },
+    about:{
+        width: "100px",
+        height: "28px",
+        backgroundImage: `url(${AboutImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+    },
+    submit:{
+        width: "118px",
+        height: "28px",
+        backgroundImage: `url(${SubmitImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+    },
+    button:{
+        width: "100%",
+        height: "100%",
+        borderRadius: 0,
+        borderColor: "transparent"
+    }
+}));
 
 const NavBar = (props) => {
+    const classes = useStyles();
+    
     return(
-        <div id="navBar">
-            <h1>Unfold</h1>
-            <div id="buttons">
-                <Paper >
+        <div id="navBar" className={classes.root}>
+
+			<Grid	container 
+				direction="row"
+				justify="left"
+                alignItems="stretch"
+				spacing={5}
+			>
+ 
+             <h1>Unfold</h1 >
+
+                <Grid item className={classes.gridItem}>
+                <Paper square 
+                    elevation={0}
+                    className={classes.canvas}>
                     <Button 
+                        className={classes.button}
                         variant="outlined"
                         onClick={() => {
                             props.setCurrentPage("CraneCanvas")
                         }}
                     >
-                        <img src="jocelyn.jpg"/>
                     </Button>
-                </Paper>
-                <Paper>
+                </Paper></Grid>
+
+                <Grid item className={classes.gridItem}>
+                <Paper square
+                    elevation={0}
+                    className={classes.about}>
                     <Button
+                        className={classes.button}
                         variant="outlined"
                         onClick={() => {
                             props.setCurrentPage("AboutView")
                         }}
                     >
-                            <img src="submit.png"/>
                     </Button>
-                </Paper>
-                <Paper>
+                </Paper> </Grid>
+
+                <Grid item className={classes.gridItem}>
+                <Paper square
+                    elevation={0}
+                    className={classes.submit}>
                     <Button 
+                        className={classes.button}
                         variant="outlined"
                         onClick={() => {
                             props.setCurrentPage("CraneSubmission")
                         }}
                     >
-                            <img src="contact.png"/>
                     </Button>
-                </Paper>
+                </Paper> </Grid>
+
+                </Grid>
                 {/*<Button 
                     variant="outlined"
                     onClick={() => {
@@ -51,7 +113,7 @@ const NavBar = (props) => {
                     onClick={() => {
                         props.setCurrentPage("AboutView")
                     }}
-                >
+               >
                         About
                 </Button>
                 <Button 
@@ -70,7 +132,6 @@ const NavBar = (props) => {
                 >
                         Donate
                 </Button>*/}
-            </div>
         </div>
     )
 }
