@@ -99,9 +99,6 @@ The res body should contain the structure
 }
 */
 app.put('/cranes/:country', async (req, res) => {
-    const allCraneRes = await Crane.find()
-    res.send(allCraneRes)
-
     try{
         const countryCranes = await Crane.find({country: req.params.country})
         
