@@ -93,8 +93,15 @@ const AboutView = () => {
 						<CardMedia className={classes.media} image="andrew.jpg" title="Andrew" />
 
 						<CardContent>
-							<Typography variant="body2" color="textSecondary" component="p">Andrew studies Computer Science and Mathematics at University of Toronto. He loves theoretical CS and pure math, but during time off you would see him shredding gnarly trails on his mountain bike. Andrew truly believes that if people communicate genuinely with less judgement, the world would be more bearable. Thus he works on Unfold—a place for genuine stories. <br/><br/>
-							Email: andrewfengnull@gmail.com</Typography>
+							<Typography variant="body2" color="textSecondary" component="p">
+								Andrew studies Computer Science and Mathematics at University of Toronto. He loves
+								theoretical CS and pure math, but during time off you would see him shredding gnarly
+								trails on his mountain bike. Andrew truly believes that if people communicate genuinely
+								with less judgement, the world would be more bearable. Thus he works on Unfold—a place
+								for genuine stories. <br />
+								<br />
+								Email: andrewfengnull@gmail.com
+							</Typography>
 						</CardContent>
 					</Card>
 				</Grid>
