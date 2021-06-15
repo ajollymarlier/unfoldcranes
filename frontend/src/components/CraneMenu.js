@@ -276,7 +276,7 @@ const CraneMenu = (props) => {
             />
 
             <Button id="newCranes" onClick={async () => {
-                await props.setCurrentCountryCode(currentCountryCode)
+                await props.setCurrentCountryCode(currentCountryCode) //!Clicking same country again queries ""
 
             }} variant="contained" color="primary">
                 Get New Cranes

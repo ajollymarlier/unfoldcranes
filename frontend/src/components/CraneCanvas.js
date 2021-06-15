@@ -32,8 +32,6 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedMessa
     const midImages = document.querySelectorAll('.midStringImg')
     for(let i = 0; i < midImages.length; i++){
         midImages[i].addEventListener('click', (e) => {
-            console.log(e.currentTarget.id)
-            console.log(currentCranes[getCraneNumber(e.currentTarget.id) - 1])
             setCurrentDisplayedMessage(currentCranes[getCraneNumber(e.currentTarget.id) - 1].message)
 
             e.currentTarget.src="mid_read_crane.png"
@@ -44,9 +42,7 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedMessa
     const endImages = document.querySelectorAll('.endStringImg')
     for(let i = 0; i < endImages.length; i++){
         endImages[i].addEventListener('click', (e) => {
-            console.log(e.currentTarget.id)
-            console.log(currentCranes[getCraneNumber(e.currentTarget.id) - 1])
-            setCurrentDisplayedMessage([getCraneNumber(e.currentTarget.id, e) - 1].message)
+            setCurrentDisplayedMessage(currentCranes[getCraneNumber(e.currentTarget.id, e) - 1].message)
 
             e.currentTarget.src="end_read_crane.png"
             setOpen(true)
@@ -108,7 +104,7 @@ const CraneCanvas = () => {
                 body: JSON.stringify({numCranes: 20, currentCranes: []})
             })
 
-            //!End cranes are showing up as blank
+            //!End cranes are showing up as blank message
 
             let getCranesList = await getCranesRes.json() 
             console.log(getCranesList) //TODO remove later       
@@ -123,8 +119,6 @@ const CraneCanvas = () => {
 
     return(
         <div>
-            <p>{currentDisplayedMessage}</p>
-
         <div className="content">
             <Dialog
                 open={open}
