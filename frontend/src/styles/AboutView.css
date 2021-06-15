@@ -15,3 +15,11 @@ p {
 #contact {
 	text-align: center;
 }
+
+#bmc-wbtn {
+	bottom: 15px;
+}
+
+#bmc-wbtn + div {
+	bottom: 15px;
+}

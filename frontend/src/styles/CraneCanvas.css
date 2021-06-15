@@ -16,7 +16,7 @@
     overflow: hidden;
 }
 
-img {
+.midStringImg, .endStringImg, .emptyStringImg{
     height: auto;
     width: 100px;
 
