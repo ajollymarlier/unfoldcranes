@@ -88,9 +88,9 @@ const filterCountryCranes = async (countryCode) =>{
 const CraneCanvas = () => {
     const [open, setOpen] = useState(false)
     const [craneCount, setCraneCount] = useState(0)
-    const [currentCranes, setCurrentCranes] = useState([])
     const [currentCountryCode, setCurrentCountryCode] = useState("")
     const [currentDisplayedMessage, setCurrentDisplayedMessage] = useState("This is a message of a crane")
+    const [seenCranes, setSeenCranes] = useState([])
 
     useEffect(() => {
         async function initData() {
@@ -104,14 +104,15 @@ const CraneCanvas = () => {
                 body: JSON.stringify({numCranes: 20, currentCranes: []})
             })
 
-            //!End cranes are showing up as blank message
-
             let getCranesList = await getCranesRes.json() 
             console.log(getCranesList) //TODO remove later       
             setCurrentCranes(getCranesList)
             
             addCraneAnimation()
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedMessage)
+
+            //!Cranes are showing as cicked when they were not
+            //TODO need to adjust backend crane search function to make it random
         }
 
         initData();
