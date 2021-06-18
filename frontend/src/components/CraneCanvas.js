@@ -32,6 +32,8 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedMessa
     const midImages = document.querySelectorAll('.midStringImg')
     for(let i = 0; i < midImages.length; i++){
         midImages[i].addEventListener('click', (e) => {
+            //TODO append currentCranes[getCraneNumber(e.currentTarget.id) - 1] to seenCranes  
+
             setCurrentDisplayedMessage(currentCranes[getCraneNumber(e.currentTarget.id) - 1].message)
 
             e.currentTarget.src="mid_read_crane.png"
@@ -42,6 +44,8 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedMessa
     const endImages = document.querySelectorAll('.endStringImg')
     for(let i = 0; i < endImages.length; i++){
         endImages[i].addEventListener('click', (e) => {
+            //TODO append currentCranes[getCraneNumber(e.currentTarget.id) - 1] to seenCranes  
+
             setCurrentDisplayedMessage(currentCranes[getCraneNumber(e.currentTarget.id, e) - 1].message)
 
             e.currentTarget.src="end_read_crane.png"
@@ -111,8 +115,7 @@ const CraneCanvas = () => {
             addCraneAnimation()
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedMessage)
 
-            //!Cranes are showing as cicked when they were not
-            //TODO need to adjust backend crane search function to make it random
+            //!Cranes are showing as clicked when they were not
         }
 
         initData();

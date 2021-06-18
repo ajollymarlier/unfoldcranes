@@ -71,7 +71,6 @@ app.put('/cranes', async (req, res) => {
     try{
         const allCranes = await Crane.find()
         
-        //TODO need more optimized search for later
         const filteredCranes = utils.findNewCranes(req, allCranes)
 
         const finalCranes = utils.getUniqueRandoms(req.body.numCranes, filteredCranes)
