@@ -65,7 +65,7 @@ const getCraneCount = async () => {
 
 const checkStringTopRender = (currentCranes, min) => {
     if (currentCranes.length > min){
-        return <img src="empty_string.png" alt=""/>
+        return <img class="emptyStringImg" src="empty_string.png" alt=""/>
     }
 
     return
