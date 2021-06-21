@@ -92,6 +92,7 @@ const filterCountryCranes = async (countryCode) =>{
 const CraneCanvas = () => {
     const [open, setOpen] = useState(false)
     const [craneCount, setCraneCount] = useState(0)
+    const [currentCranes, setCurrentCranes] = useState([])
     const [currentCountryCode, setCurrentCountryCode] = useState("")
     const [currentDisplayedMessage, setCurrentDisplayedMessage] = useState("This is a message of a crane")
     const [seenCranes, setSeenCranes] = useState([])
@@ -116,6 +117,8 @@ const CraneCanvas = () => {
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedMessage)
 
             //!Cranes are showing as clicked when they were not
+
+            //TODO change cranes so they fit color
         }
 
         initData();
