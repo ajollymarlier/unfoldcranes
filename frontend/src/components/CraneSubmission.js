@@ -42,7 +42,7 @@ function CraneSubmission() {
         <div>
             <Grid container alignItems="center" direction="column">
                 <Box width="50%">
-                    Unfold you story here! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc metus lorem, auctor eu est a, iaculis maximus magna. Suspendisse suscipit tortor nec sollicitudin dictum.
+                    Unfold you story here!
                     <Grid class="form">
                         <form className={classes.root} noValidate autoComplete="off">
                         <Grid container direction="column" justify="center">
