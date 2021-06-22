@@ -46,6 +46,8 @@ app.post('/cranes', async (req, res) => {
             creationTime: req.body.creationTime
         }]) 
 
+        console.log(req.body.name)
+
         res.send(addCraneRes)
     }
     catch (err){

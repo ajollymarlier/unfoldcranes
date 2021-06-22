@@ -75,7 +75,7 @@ const getCraneCount = async () => {
 
 const checkStringTopRender = (currentCranes, min) => {
     if (currentCranes.length > min){
-        return <img class="emptyStringImg" src="empty_string.png" alt=""/>
+        return <img className="emptyStringImg" src="empty_string.png" alt=""/>
     }
 
     return
@@ -125,6 +125,8 @@ const CraneCanvas = () => {
             //!Cranes are showing as clicked when they were not
 
             //!Cranes with < 5 in 2nd column on, centers vertically
+
+            //!One crane is not being show from list
 
             //TODO need to have pop up when query returns 0 and block the refresh
 
