@@ -28,13 +28,16 @@ const getCraneNumber = (craneName) => {
 }
 
 //Adds click listener to each image of a crane
-const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedMessage) => {
+const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedInfo) => {
     const midImages = document.querySelectorAll('.midStringImg')
     for(let i = 0; i < midImages.length; i++){
         midImages[i].addEventListener('click', (e) => {
             //TODO append currentCranes[getCraneNumber(e.currentTarget.id) - 1] to seenCranes  
 
-            setCurrentDisplayedMessage(currentCranes[getCraneNumber(e.currentTarget.id) - 1].message)
+            setCurrentDisplayedInfo({
+                message: currentCranes[getCraneNumber(e.currentTarget.id) - 1].message,
+                country: currentCranes[getCraneNumber(e.currentTarget.id) - 1].country
+            })
 
             e.currentTarget.src=currentCranes[getCraneNumber(e.currentTarget.id) - 1].backgroundColor + "_mid_read_crane.png"
             setOpen(true)
@@ -46,7 +49,10 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedMessa
         endImages[i].addEventListener('click', (e) => {
             //TODO append currentCranes[getCraneNumber(e.currentTarget.id) - 1] to seenCranes  
 
-            setCurrentDisplayedMessage(currentCranes[getCraneNumber(e.currentTarget.id, e) - 1].message)
+            setCurrentDisplayedInfo({
+                message: currentCranes[getCraneNumber(e.currentTarget.id) - 1].message,
+                country: currentCranes[getCraneNumber(e.currentTarget.id) - 1].country
+            })
 
             e.currentTarget.src=currentCranes[getCraneNumber(e.currentTarget.id) - 1].backgroundColor + "_end_read_crane.png"
             setOpen(true)
@@ -94,7 +100,7 @@ const CraneCanvas = () => {
     const [craneCount, setCraneCount] = useState(0)
     const [currentCranes, setCurrentCranes] = useState([])
     const [currentCountryCode, setCurrentCountryCode] = useState("")
-    const [currentDisplayedMessage, setCurrentDisplayedMessage] = useState("This is a message of a crane")
+    const [currentDisplayedInfo, setCurrentDisplayedInfo] = useState("This is a message of a crane")
     const [seenCranes, setSeenCranes] = useState([])
 
     useEffect(() => {
@@ -114,7 +120,7 @@ const CraneCanvas = () => {
             setCurrentCranes(getCranesList)
             
             addCraneAnimation()
-            addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedMessage)
+            addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo)
 
             //!Cranes are showing as clicked when they were not
 
@@ -140,12 +146,12 @@ const CraneCanvas = () => {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    Message
+                    {currentDisplayedInfo.country}
                 </DialogTitle>
                 
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {currentDisplayedMessage}
+                        {currentDisplayedInfo.message}
                     </DialogContentText>
                 </DialogContent>
 
