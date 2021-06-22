@@ -87,7 +87,7 @@ const filterCountryCranes = async (countryCode) =>{
         {
             method: 'PUT',
             headers: {'content-type': 'application/json'},
-            body: JSON.stringify({numCranes: 20, currentCranes: []}) //TODO need to include current cranes as pass in
+            body: JSON.stringify({numCranes: 20, currentCranes: []}) //TODO need to include seenCranes as pass in
         }
     )
 
@@ -128,7 +128,6 @@ const CraneCanvas = () => {
 
             //TODO need to have pop up when query returns 0 and block the refresh
 
-            //TODO change cranes so they fit color
         }
 
         initData();
@@ -146,7 +145,7 @@ const CraneCanvas = () => {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {currentDisplayedInfo.country}
+                    {currentDisplayedInfo.name + ", " + currentDisplayedInfo.country}
                 </DialogTitle>
                 
                 <DialogContent>
