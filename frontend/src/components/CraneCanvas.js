@@ -36,7 +36,7 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedMessa
 
             setCurrentDisplayedMessage(currentCranes[getCraneNumber(e.currentTarget.id) - 1].message)
 
-            e.currentTarget.src="mid_read_crane.png"
+            e.currentTarget.src=currentCranes[getCraneNumber(e.currentTarget.id) - 1].backgroundColor + "_mid_read_crane.png"
             setOpen(true)
         })
     }
@@ -48,7 +48,7 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedMessa
 
             setCurrentDisplayedMessage(currentCranes[getCraneNumber(e.currentTarget.id, e) - 1].message)
 
-            e.currentTarget.src="end_read_crane.png"
+            e.currentTarget.src=currentCranes[getCraneNumber(e.currentTarget.id) - 1].backgroundColor + "_end_read_crane.png"
             setOpen(true)
         })
     }
@@ -118,6 +118,10 @@ const CraneCanvas = () => {
 
             //!Cranes are showing as clicked when they were not
 
+            //!Cranes with < 5 in 2nd column on, centers vertically
+
+            //TODO need to have pop up when query returns 0 and block the refresh
+
             //TODO change cranes so they fit color
         }
 
@@ -184,9 +188,9 @@ const CraneCanvas = () => {
                         }
 
                         if (i === currentCranes.length - 1 || i === 4){
-                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src="end_unread_crane.png"/>
+                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
                         }else{
-                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src="mid_unread_crane.png"/>
+                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
                         }
                     })}
                 </Grid>
@@ -208,9 +212,9 @@ const CraneCanvas = () => {
                         }
 
                         if (i === currentCranes.length - 1 || i === 9){
-                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src="end_unread_crane.png"/>
+                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
                         }else{
-                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src="mid_unread_crane.png"/>
+                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
                         }
                     })}
                 </Grid>
@@ -232,9 +236,9 @@ const CraneCanvas = () => {
                         }
 
                         if (i === currentCranes.length - 1 || i === 15){
-                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src="end_unread_crane.png"/>
+                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
                         }else{
-                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src="mid_unread_crane.png"/>
+                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
                         }
                     })}
                 </Grid>
@@ -256,9 +260,9 @@ const CraneCanvas = () => {
                         }
 
                         if (i === currentCranes.length - 1 || i === 19){
-                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src="end_unread_crane.png"/>
+                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
                         }else{
-                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src="mid_unread_crane.png"/>
+                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
                         }
                     })}
                 </Grid>
