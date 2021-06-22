@@ -22,6 +22,7 @@ Adding new crane to database.
 Expects req body structure of 
 {   
     message: String,
+    name: String,
     country: String, // This is the standard country code
     backgroundColor: String,
     creationTime: Date
@@ -39,6 +40,7 @@ app.post('/cranes', async (req, res) => {
     try{
         const addCraneRes = await Crane.insertMany([{
             message: sanitizedMessage,
+            name: req.body.name,
             country: req.body.country,
             backgroundColor: req.body.backgroundColor,
             creationTime: req.body.creationTime
