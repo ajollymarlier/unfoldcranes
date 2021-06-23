@@ -36,7 +36,8 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedInfo)
 
             setCurrentDisplayedInfo({
                 message: currentCranes[getCraneNumber(e.currentTarget.id) - 1].message,
-                country: currentCranes[getCraneNumber(e.currentTarget.id) - 1].country
+                country: currentCranes[getCraneNumber(e.currentTarget.id) - 1].country,
+                name: currentCranes[getCraneNumber(e.currentTarget.id) - 1].name
             })
 
             e.currentTarget.src=currentCranes[getCraneNumber(e.currentTarget.id) - 1].backgroundColor + "_mid_read_crane.png"
@@ -126,7 +127,7 @@ const CraneCanvas = () => {
 
             //!Cranes with < 5 in 2nd column on, centers vertically
 
-            //!One crane is not being show from list
+            //!Messages are disappearing???
 
             //TODO need to have pop up when query returns 0 and block the refresh
 
@@ -238,7 +239,7 @@ const CraneCanvas = () => {
                     {checkStringTopRender(currentCranes, 10)}
                     {currentCranes.map((crane, i) => {
                         //Stops after getting cranes #10-14
-                        if (i <= 10 || i >= 16){
+                        if (i <= 9 || i >= 15){
                             return <span></span>
                         }
 
