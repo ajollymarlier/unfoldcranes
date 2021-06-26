@@ -22,20 +22,39 @@ const useStyles = makeStyles((theme) => ({
   
 function CraneSubmission() {
     const classes = useStyles();
-    var [countryCode, message, name] = React.useState('')        //TODO: incorrect use of hooks, rewrite
+    var [countryCode, setCountryCode] = React.useState('')
+    var [message, setMessage] = React.useState('')
+    var [name, setName] = React.useState('')
     var [activeColor, setActiveColor] = React.useState(Constants.colorData[0].color)
+    var [submitAttempted, setSubmitAttempted] = React.useState(false)
 
-    var submit = async () => {
-        const newCrane = await fetch('/cranes', {
-            method: 'POST',
-            headers: {"content-type": "application/json"},
-            body: JSON.stringify({
-                message: message,
-                country: countryCode,
-                backgroundColor: activeColor,
-                creationTime: new Date().toLocaleString()
-            })
-        })
+    var submit = async (event) => {
+        setSubmitAttempted(true);
+        var shouldSubmit = true;
+        if(!countryCode) {
+            shouldSubmit = false;
+            alert("Country cannot be empty")
+        }
+        if(!message || !name) {
+            shouldSubmit = false;
+        }
+        if(shouldSubmit)
+            // await fetch('/cranes', {
+            //     method: 'POST',
+            //     headers: {"content-type": "application/json"},
+            //     body: JSON.stringify({
+            //         name: name,
+            //         message: message,
+            //         country: countryCode,
+            //         backgroundColor: activeColor,
+            //         creationTime: new Date().toLocaleString()
+            //     })
+            // })
+            console.log(message);
+        else {
+            event.stopPropagation();
+            event.preventDefault();
+        }
     }
 
     return (
@@ -44,20 +63,26 @@ function CraneSubmission() {
                 <Box width="50%">
                     Unfold you story here!
                     <Grid class="form">
-                        <form className={classes.root} noValidate autoComplete="off">
+                        <form className={classes.root} noValidate autoComplete="off" onSubmit={submit}>
                         <Grid container direction="column" justify="center">
                                 <Grid container direction="row" justify="flex-start">
-                                <TextField required id="outlined-required" label="Name" onChange={(event) => {
-                                    name = event.target.value
+                                <TextField required id="outlined-required" label="Name" 
+                                    error={submitAttempted == true && !name}
+                                    helperText={(submitAttempted == true && !name) ? "Name cannot be empty" : ""}
+                                    onChange={(event) => {
+                                        setName(event.target.value)
                                 }}/>
                                 <Autocomplete
                                     onChange={(event, value, reason) => {
-                                        countryCode = value.substring(0,3)
+                                        if(value)
+                                            setCountryCode(value.substring(0,3))
+                                        else
+                                            setCountryCode("")
                                     }}
                                     options={Constants.countryCodes}
                                     getOptionLabel={(code) => code.substring(4, code.length)}
                                     style={{ width: 174 }}
-                                    renderInput={(params) => <TextField {...params} label="Filter By Country" variant="outlined" />}
+                                    renderInput={(params) => <TextField {...params} label="Country" variant="outlined" />}
                                 />
                                 <TextField
                                     required
@@ -68,8 +93,10 @@ function CraneSubmission() {
                                     defaultValue=""
                                     variant="outlined"
                                     fullWidth 
+                                    error={submitAttempted == true && !message}
+                                    helperText={(submitAttempted == true && !message) ? "Message cannot be empty" : ""}
                                     onChange={(event) => {
-                                        message = event.target.value
+                                        setMessage(event.target.value)
                                     }}
                                 />
                                 </Grid>
@@ -82,7 +109,7 @@ function CraneSubmission() {
                                             )}
                                     </GridList>
                                 </Grid>
-                                <Button variant="contained" onClick={submit}>Submit</Button>
+                                <Button variant="contained" type="submit">Submit</Button>
                         </Grid>
                         </form>
                     </Grid>

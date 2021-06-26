@@ -5,7 +5,7 @@ const CraneSchema = new mongoose.Schema({
     country: String, // This is the standard country code
     backgroundColor: String, //Colour code
     creationTime: String,
-    author: String //Datetime string
+    name: String //Datetime string
 })
 
 const Crane = mongoose.model('Crane', CraneSchema)
