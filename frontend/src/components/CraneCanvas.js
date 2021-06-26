@@ -125,15 +125,20 @@ const CraneCanvas = () => {
             })
 
             let getCranesList = await getCranesRes.json() 
-            console.log(getCranesList) //TODO remove later       
+            console.log(getCranesList) //TODO remove later 
+            
+            if (getCranesList.length == 0) {
+                alert("No cranes")
+                setCurrentCountryCode("")
+                return
+            }
+
             setCurrentCranes(getCranesList)
             
             addCraneAnimation()
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo, setSeenCranes)
 
             //!Cranes are showing as clicked when they were not
-
-            //!Cranes with < 5 in 2nd column on, centers vertically
 
             //!Messages are disappearing???
 
@@ -261,7 +266,7 @@ const CraneCanvas = () => {
                             return <span></span>
                         }
 
-                        if (i === 15){
+                        if (i === 14){
                             return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
                         }else{
                             return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
