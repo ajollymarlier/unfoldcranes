@@ -39,18 +39,17 @@ function CraneSubmission() {
             shouldSubmit = false;
         }
         if(shouldSubmit)
-            // await fetch('/cranes', {
-            //     method: 'POST',
-            //     headers: {"content-type": "application/json"},
-            //     body: JSON.stringify({
-            //         name: name,
-            //         message: message,
-            //         country: countryCode,
-            //         backgroundColor: activeColor,
-            //         creationTime: new Date().toLocaleString()
-            //     })
-            // })
-            console.log(message);
+            await fetch('/cranes', {
+                method: 'POST',
+                headers: {"content-type": "application/json"},
+                body: JSON.stringify({
+                    name: name,
+                    message: message,
+                    country: countryCode,
+                    backgroundColor: activeColor,
+                    creationTime: new Date().toLocaleString()
+                })
+            })
         else {
             event.stopPropagation();
             event.preventDefault();
