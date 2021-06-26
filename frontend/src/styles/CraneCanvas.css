@@ -16,6 +16,12 @@
     overflow: hidden;
 }
 
+#animationContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .midStringImg, .endStringImg, .emptyStringImg{
     height: auto;
     width: 100px;

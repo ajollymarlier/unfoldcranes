@@ -4,20 +4,11 @@ import '../styles/CraneCanvas.css'
 import {useEffect, useState} from 'react'
 import CraneMenu from './CraneMenu'
 import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button} from '@material-ui/core'
-import anime from 'animejs/lib/anime.es.js' 
 
+import ReactAnime from 'react-animejs'
+const {Anime, stagger} = ReactAnime
+//import anime from 'animejs/lib/anime.es.js' 
 
-//Animates crane entrance into crane canvas
-const addCraneAnimation = () => {
-    const dropAnimation = anime({
-        targets: '#craneString',
-        translateY: 450,
-        duration: 2500,
-        delay: anime.stagger(200, {start: 400})
-    })
-
-    dropAnimation.restart() //!not working
-}
 
 const getCraneNumber = (craneName) => {
     while (isNaN(parseInt(craneName))){
@@ -135,12 +126,9 @@ const CraneCanvas = () => {
 
             setCurrentCranes(getCranesList)
             
-            addCraneAnimation()
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo, setSeenCranes)
 
-            //!Cranes are showing as clicked when they were not
-
-            //!Messages are disappearing???
+            //!Cranes are showing as clicked when they were notx
 
             //TODO seenCranes not working in backend
 
@@ -184,7 +172,30 @@ const CraneCanvas = () => {
                 </DialogActions>
             </Dialog>
 
-            {/*!When dealing with less than multiple of 5, clicking shows mid crane*/}           
+            <Anime id="animationContainer"
+                initial={[
+                    {
+                        targets: '#craneString',
+                        translateY: 450,
+                        duration: 2500,
+                        delay: stagger(200, {start: 40})
+                    }
+                ]}
+
+                _onUpdate={[
+                    {
+                        targets: '#craneString',
+                        translateY: -450,
+                        duration: 10,
+                    },
+                    {
+                        targets: '#craneString',
+                        translateY: 450,
+                        duration: 2500,
+                        delay: stagger(200, {start: 40})
+                    }
+                ]}
+            >        
             <Grid 
                 id="craneCanvas"
                 container
@@ -305,8 +316,9 @@ const CraneCanvas = () => {
                         return stringImg
                     })}
                 </Grid>
-                <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} runAnimation={addCraneAnimation} setCurrentCountryCode={setCurrentCountryCode}/></div>
-            </Grid>          
+                <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div>
+            </Grid>  
+            </Anime>        
         </div>
             <div>
                 <p>The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note.</p>
