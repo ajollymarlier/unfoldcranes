@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
         '& .MuiTextField-root': {
             margin: theme.spacing(1),
-        }
+        },
     }
   }
 ));
@@ -60,7 +60,9 @@ function CraneSubmission() {
         <div>
             <Grid container alignItems="center" direction="column">
                 <Box width="50%">
+                  <p class="centered-p"> 
                     Unfold you story here!
+                  </p>
                     <Grid class="form">
                         <form className={classes.root} noValidate autoComplete="off" onSubmit={submit}>
                         <Grid container direction="column" justify="center">

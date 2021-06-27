@@ -20,6 +20,10 @@ p {
 	color: #120963;
 }
 
+.centered-p{
+  text-align: center
+}
+
 body {
 	/*background-color: #97eabf;*/
 	background-image: url("wallpaper.png");
