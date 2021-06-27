@@ -16,6 +16,14 @@ const useStyles = makeStyles((theme) => ({
         '& .MuiTextField-root': {
             margin: theme.spacing(1),
         },
+    },
+    submitButton: {
+      margin: "5%",
+      marginLeft: '2%',
+      color: 'white',
+	    background: 'linear-gradient(45deg, #ff9933 30%, #FF8E53 60%)',
+      width: "30%",
+      alignSelf: "left"
     }
   }
 ));
@@ -59,20 +67,24 @@ function CraneSubmission() {
     return (
         <div>
             <Grid container alignItems="center" direction="column">
-                <Box width="50%">
+                <Box width="50%" padding="2%">
+                  <h2>SUBMIT A CRANE</h2>
                   <p class="centered-p"> 
                     Unfold you story here!
                   </p>
-                    <Grid class="form">
-                        <form className={classes.root} noValidate autoComplete="off" onSubmit={submit}>
+                    <Grid container class="form" 
+                      >
+                        <form className={classes.root} noValidate autoComplete="off" onSubmit={submit}
+                        >
                         <Grid container direction="column" justify="center">
-                                <Grid container direction="row" justify="flex-start">
+                              <Grid container direction="row" justify="flex-start">
                                 <TextField required id="outlined-required" label="Name" 
                                     error={submitAttempted == true && !name}
                                     helperText={(submitAttempted == true && !name) ? "Name cannot be empty" : ""}
                                     onChange={(event) => {
                                         setName(event.target.value)
-                                }}/>
+                                }}
+                                />
                                 <Autocomplete
                                     onChange={(event, value, reason) => {
                                         if(value)
@@ -110,7 +122,9 @@ function CraneSubmission() {
                                             )}
                                     </GridList>
                                 </Grid>
-                                <Button variant="contained" type="submit">Submit</Button>
+                                <Button variant="contained" 
+                                  className={classes.submitButton}
+                                  disableElevation type="submit">Submit</Button>
                         </Grid>
                         </form>
                     </Grid>
