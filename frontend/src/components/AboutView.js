@@ -164,12 +164,12 @@ const AboutView = () => {
 					</Card>
 				</Grid>
 			</Grid>
-			<h2>CONTACT</h2>
+			{/* <h2>CONTACT</h2>
 			<p id="contact">
 				Have any comments or questions? We'd love to hear from you!<br />
 				<br />
 				Our email: unfoldcranes@gmail.com
-			</p>
+			</p> */}
 
 			<BuyMeACoffee />
 		</div>

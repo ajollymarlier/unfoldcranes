@@ -5,6 +5,7 @@ import CraneCanvas from './components/CraneCanvas'
 import AboutView from './components/AboutView'
 import CraneSubmission from './components/CraneSubmission'
 import NavBar from './components/NavBar'
+import ContactFooter from './components/ContactFooter'
 
 //Testing comment
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
     <div className="App">
       <NavBar setCurrentPage={setCurrentPage}/>
       {currentView}
+      <ContactFooter/>
     </div>
   );
 }
