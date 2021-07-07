@@ -252,31 +252,31 @@ export const countryCodes = [
 
 export const colorData = [
     {
-        src: "blue-purple.png",
-        color: "blue-purple"
-    },
-    {
-        src: "green-blue.png",
-        color: "green-blue"
+        src: "red-orange.png",
+        color: "red-orange"
     },
     {
         src: "orange-yellow.png",
         color: "orange-yellow"
     },
     {
-        src: "pink-red.png",
-        color: "pink-red"
+        src: "yellow-green.png",
+        color: "yellow-green"
+    },
+    {
+        src: "green-blue.png",
+        color: "green-blue"
+    },
+    {
+        src: "blue-purple.png",
+        color: "blue-purple"
     },
     {
         src: "purple-pink.png",
         color: "purple-pink"
     },
     {
-        src: "red-orange.png",
-        color: "red-orange"
-    },
-    {
-        src: "yellow-green.png",
-        color: "yellow-green"
+        src: "pink-red.png",
+        color: "pink-red"
     },
 ]

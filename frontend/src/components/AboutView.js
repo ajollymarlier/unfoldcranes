@@ -31,7 +31,7 @@ class BuyMeACoffee extends React.Component {
 		let script = document.createElement('script');
 		script.setAttribute('data-name', 'BMC-Widget');
 		script.src = 'https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js';
-		script.setAttribute('data-id', 'unfoldcranes');
+		script.setAttribute('data-id', 'unfold_cranes');
 		script.setAttribute('data-description', 'Thank you for your support!');
 		script.setAttribute('data-message', 'This web is free to use. Do you want to help supporting it?');
 		script.setAttribute('data-color', '#FFDD00');
@@ -164,12 +164,12 @@ const AboutView = () => {
 					</Card>
 				</Grid>
 			</Grid>
-			<h2>CONTACT</h2>
+			{/* <h2>CONTACT</h2>
 			<p id="contact">
 				Have any comments or questions? We'd love to hear from you!<br />
 				<br />
 				Our email: unfoldcranes@gmail.com
-			</p>
+			</p> */}
 
 			<BuyMeACoffee />
 		</div>

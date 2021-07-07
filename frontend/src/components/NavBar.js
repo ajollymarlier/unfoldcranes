@@ -5,38 +5,60 @@ import { Button, Paper , Grid } from '@material-ui/core'
  import AboutImage from '../about.png'
  import SubmitImage from '../submit.png'
  import HomeImage from '../home.png'
+ import UnfoldImage from '../unfold.png'
 
 const useStyles = makeStyles((theme) => ({
     root:{
-        flexGrow: 1
+        textAlign: "left",
+        // flexGrow: 1
     },
-    gridItem:{
-        marginTop: "1.35%"
-    },
-    canvas:{
-        width: "90px",
-        height: "28px",
-        backgroundImage: `url(${HomeImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-    },
-    about:{
-        width: "100px",
-        height: "28px",
-        backgroundImage: `url(${AboutImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-    },
-    submit:{
-        width: "118px",
-        height: "28px",
-        backgroundImage: `url(${SubmitImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-    },
-    button:{
+    grid:{
         width: "100%",
         height: "100%",
+    },
+    gridItem:{
+      margin: "3%",
+      marginLeft: "3.3%",
+      alignSelf: "center",
+      minHeight: "100%",
+      minWidth: "10%",
+    },
+    unfold:{
+      justifySelf: "left",
+      height: "100%",
+      width: "100%",
+      minHeight: "40px",
+        backgroundImage: `url(${UnfoldImage})`,
+        backgroundColor: "transparent",
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+    },
+    canvas:{
+        backgroundImage: `url(${HomeImage})`,
+        backgroundColor: "transparent",
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+    },
+    about:{
+        backgroundImage: `url(${AboutImage})`,
+        backgroundColor: "transparent",
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+    },
+    submit:{
+        backgroundImage: `url(${SubmitImage})`,
+        backgroundColor: "transparent",
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+    },
+    button:{
+        margin: 0,
+        minWidth: "100%",
+        minHeight: "100%",
         borderRadius: 0,
         borderColor: "transparent"
     }
@@ -47,17 +69,19 @@ const NavBar = (props) => {
     
     return(
         <div id="navBar" className={classes.root}>
-
 			<Grid	container 
-				direction="row"
-				justify="left"
-                alignItems="stretch"
-				spacing={5}
+        className={classes.grid} 
 			>
- 
-             <h1>Unfold</h1 >
+                <Grid item className={classes.gridItem}
+                  xs={12} sm={3}>
+                <Paper square 
+                    elevation={0} 
+                    className={classes.unfold}
+                    >
+                  {/* <img src="unfold.png" className={classes.unfold}/> */}
+                </Paper></Grid>
 
-                <Grid item className={classes.gridItem}>
+                <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square 
                     elevation={0}
                     className={classes.canvas}>
@@ -71,7 +95,7 @@ const NavBar = (props) => {
                     </Button>
                 </Paper></Grid>
 
-                <Grid item className={classes.gridItem}>
+                <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square
                     elevation={0}
                     className={classes.about}>
@@ -85,7 +109,7 @@ const NavBar = (props) => {
                     </Button>
                 </Paper> </Grid>
 
-                <Grid item className={classes.gridItem}>
+                <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square
                     elevation={0}
                     className={classes.submit}>

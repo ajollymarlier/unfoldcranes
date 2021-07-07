@@ -17,7 +17,12 @@ p {
 	margin-right: 24.9%;
 	margin-top: 0.5%;
 	margin-bottom: 0.5%;
-	color: #070048;
+	color: #120963;
+}
+
+.centered-p{
+  text-align: center;
+  margin-bottom: 2%;
 }
 
 body {

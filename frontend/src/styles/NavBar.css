@@ -3,21 +3,6 @@
     flex-direction: row;
     justify-content: left;
 
-    padding-bottom: 0.5%;   
-    background-color: white;
-    /*opacity: 0.5;*/
-}
-/* 
-#buttons {
-    margin-top: 1.35%;
-    display: flex;
-    flex-direction: row;
-    margin: 1.35%;
-    /*margin-left: 1%;
-} */
-
-h1{
-    padding-left: 2%;
-    padding-right: 31%;
-    color: #FF4500;
+    max-height: 10%;
+    background-color: rgba(255,255,255,0.5);
 }

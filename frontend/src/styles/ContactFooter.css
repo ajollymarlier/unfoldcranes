@@ -1,0 +1,23 @@
+.footer{
+  flex:1;
+  margin-top: 2%;
+  padding-top: 5.5%;
+  padding-bottom: 3.5%;
+  background-color: rgba(75, 129, 209,0.5);
+}
+
+.footer-text{
+  color: whitesmoke;
+  text-align: left;
+}
+
+.icon-list{
+  padding-top: 2%;
+  list-style-type: none;
+  padding-left: 0.5%;
+  padding-bottom: 2%;
+}
+
+.icon-list>tr>th{
+  font-weight:normal;
+}
