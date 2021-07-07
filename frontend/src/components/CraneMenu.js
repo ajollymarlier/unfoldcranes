@@ -8,6 +8,8 @@ import * as Constants from './Constants';
 const CraneMenu = (props) => {
     let currentCountryCode = ""
 
+    //TODO need to clear autocomplete text when blocking refresh
+
     return(
         <div id="craneMenu">
             <Autocomplete

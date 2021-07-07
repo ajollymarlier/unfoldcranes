@@ -132,7 +132,9 @@ const CraneCanvas = () => {
 
             //TODO seenCranes not working in backend
 
-            //TODO need to have pop up when query returns 0 and block the refresh
+            //TODO need to have pop up when query returns 0 to be dialog and not alert
+
+            //!Animation is running on every dialog open
 
         }
 
@@ -149,6 +151,12 @@ const CraneCanvas = () => {
                 }}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
+                PaperProps={{
+                    style: {
+                        /*backgroundColor: 'Blue',
+                        color: 'white'*/
+                    }
+                }}
             >
                 <DialogTitle id="alert-dialog-title">
                     {currentDisplayedInfo.name + ", " + currentDisplayedInfo.country}
