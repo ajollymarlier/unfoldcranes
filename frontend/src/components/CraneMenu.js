@@ -5,6 +5,9 @@ import { Button, TextField } from '@material-ui/core';
 import {Autocomplete} from '@material-ui/lab'
 import * as Constants from './Constants';
 
+import ReactAnime from 'react-animejs'
+const {Anime, stagger} = ReactAnime
+
 const CraneMenu = (props) => {
     let currentCountryCode = ""
 
@@ -24,13 +27,37 @@ const CraneMenu = (props) => {
                 }}
                 renderInput={(params) => <TextField {...params} label="Filter By Country" variant="outlined" />}
             />
+            <Anime id="animationContainer"
+                initial={[
+                    {
+                        targets: '#craneString',
+                        translateY: 450,
+                        duration: 2500,
+                        delay: stagger(200, {start: 40})
+                    }
+                ]}
 
-            <Button id="newCranes" onClick={async () => {
-                await props.setCurrentCountryCode(currentCountryCode) //!Clicking same country again queries ""
+                _onClick={[
+                    {
+                        targets: '#craneString',
+                        translateY: -450,
+                        duration: 10,
+                    },
+                    {
+                        targets: '#craneString',
+                        translateY: 450,
+                        duration: 2500,
+                        delay: stagger(200, {start: 40})
+                    }
+                ]}
+            > 
+                <Button id="newCranes" onClick={async () => {
+                    await props.setCurrentCountryCode(currentCountryCode) //!Clicking same country again queries ""
 
-            }} variant="contained" color="primary">
-                Get New Cranes
-            </Button>
+                }} variant="contained" color="primary">
+                    Get New Cranes
+                </Button>
+            </Anime>
         </div>
     )
 }

@@ -5,8 +5,7 @@ import {useEffect, useState} from 'react'
 import CraneMenu from './CraneMenu'
 import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button} from '@material-ui/core'
 
-import ReactAnime from 'react-animejs'
-const {Anime, stagger} = ReactAnime
+
 //import anime from 'animejs/lib/anime.es.js' 
 
 
@@ -128,6 +127,8 @@ const CraneCanvas = () => {
             
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo, setSeenCranes)
 
+
+
             //!Cranes are showing as clicked when they were notx
 
             //TODO seenCranes not working in backend
@@ -180,30 +181,6 @@ const CraneCanvas = () => {
                 </DialogActions>
             </Dialog>
 
-            <Anime id="animationContainer"
-                initial={[
-                    {
-                        targets: '#craneString',
-                        translateY: 450,
-                        duration: 2500,
-                        delay: stagger(200, {start: 40})
-                    }
-                ]}
-
-                _onUpdate={[
-                    {
-                        targets: '#craneString',
-                        translateY: -450,
-                        duration: 10,
-                    },
-                    {
-                        targets: '#craneString',
-                        translateY: 450,
-                        duration: 2500,
-                        delay: stagger(200, {start: 40})
-                    }
-                ]}
-            >        
             <Grid 
                 id="craneCanvas"
                 container
@@ -323,13 +300,12 @@ const CraneCanvas = () => {
                     {checkEmptyStringRender(currentCranes, 15, 20).map((stringImg, i) => {
                         return stringImg
                     })}
-                </Grid>
-                <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div>
-            </Grid>  
-            </Anime>        
+                </Grid>   
+                <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div> 
+            </Grid>         
         </div>
             <div>
-                <p class="centered-p">The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note. <br/> <br/>
+                <p className="centered-p">The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note. <br/> <br/>
                 {craneCount} cranes and counting...</p>
             </div>
         </div>
