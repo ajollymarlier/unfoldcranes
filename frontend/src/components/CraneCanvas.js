@@ -127,15 +127,13 @@ const CraneCanvas = () => {
             
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo, setSeenCranes)
 
+            //!Crane names are being set to undefined???
 
-
-            //!Cranes are showing as clicked when they were notx
+            //TODO Need to add full country name to message instead of code
 
             //TODO seenCranes not working in backend
 
             //TODO need to have pop up when query returns 0 to be dialog and not alert
-
-            //!Animation is running on every dialog open
 
         }
 
@@ -158,6 +156,8 @@ const CraneCanvas = () => {
                         color: 'white'*/
                     }
                 }}
+                fullWidth
+                maxWidth='sm'
             >
                 <DialogTitle id="alert-dialog-title">
                     {currentDisplayedInfo.name + ", " + currentDisplayedInfo.country}
