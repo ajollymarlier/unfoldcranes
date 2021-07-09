@@ -3,7 +3,8 @@ import '../styles/CraneCanvas.css'
 
 import {useEffect, useState} from 'react'
 import CraneMenu from './CraneMenu'
-import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button} from '@material-ui/core'
+import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Collapse} from '@material-ui/core'
+import {Alert} from '@material-ui/lab'
 
 
 //import anime from 'animejs/lib/anime.es.js' 
@@ -96,6 +97,7 @@ const checkEmptyStringRender = (currentCranes, min, max) => {
 
 const CraneCanvas = () => {
     const [open, setOpen] = useState(false)
+    const [noCraneOpen, setNoCraneOpen] = useState(false)
     const [craneCount, setCraneCount] = useState(0)
     const [currentCranes, setCurrentCranes] = useState([])
     const [currentCountryCode, setCurrentCountryCode] = useState("")
@@ -118,7 +120,7 @@ const CraneCanvas = () => {
             console.log(getCranesList) //TODO remove later 
             
             if (getCranesList.length == 0) {
-                alert("No cranes")
+                setNoCraneOpen(true)
                 setCurrentCountryCode("")
                 return
             }
@@ -304,6 +306,10 @@ const CraneCanvas = () => {
                 <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div> 
             </Grid>         
         </div>
+            <Collapse in={noCraneOpen}>
+                <Alert severity="warning" variant="filled" color="warning" onClose={() => {setNoCraneOpen(false)}}>No cranes exist for target country! Showing cranes from all countries. </Alert>
+            </Collapse>
+
             <div>
                 <p className="centered-p">The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note. <br/> <br/>
                 {craneCount} cranes and counting...</p>
