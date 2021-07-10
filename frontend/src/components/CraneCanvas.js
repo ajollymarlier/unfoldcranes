@@ -19,12 +19,10 @@ const getCraneNumber = (craneName) => {
 }
 
 //Adds click listener to each image of a crane
-const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedInfo, setSeenCranes) => {
+const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedInfo) => {
     const midImages = document.querySelectorAll('.midStringImg')
     for(let i = 0; i < midImages.length; i++){
         midImages[i].addEventListener('click', (e) => {
-            setSeenCranes(currentCranes[getCraneNumber(e.currentTarget.id) - 1])
-
             setCurrentDisplayedInfo({
                 message: currentCranes[getCraneNumber(e.currentTarget.id) - 1].message,
                 country: currentCranes[getCraneNumber(e.currentTarget.id) - 1].country,
@@ -39,8 +37,6 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedInfo,
     const endImages = document.querySelectorAll('.endStringImg')
     for(let i = 0; i < endImages.length; i++){
         endImages[i].addEventListener('click', (e) => {
-            setSeenCranes(currentCranes[getCraneNumber(e.currentTarget.id) - 1])
-
             setCurrentDisplayedInfo({
                 message: currentCranes[getCraneNumber(e.currentTarget.id) - 1].message,
                 country: currentCranes[getCraneNumber(e.currentTarget.id) - 1].country
@@ -102,7 +98,6 @@ const CraneCanvas = () => {
     const [currentCranes, setCurrentCranes] = useState([])
     const [currentCountryCode, setCurrentCountryCode] = useState("")
     const [currentDisplayedInfo, setCurrentDisplayedInfo] = useState("This is a message of a crane")
-    const [seenCranes, setSeenCranes] = useState([])
 
     useEffect(() => {
         async function initData() {
@@ -113,7 +108,7 @@ const CraneCanvas = () => {
             const getCranesRes = await fetch('/cranes/' + currentCountryCode, {
                 method: 'PUT',
                 headers: {"content-type": "application/json"},
-                body: JSON.stringify({numCranes: 20, currentCranes: seenCranes})
+                body: JSON.stringify({numCranes: 20, currentCranes: []})
             })
 
             let getCranesList = await getCranesRes.json() 
@@ -127,16 +122,11 @@ const CraneCanvas = () => {
 
             setCurrentCranes(getCranesList)
             
-            addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo, setSeenCranes)
+            addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo)
 
             //!Crane names are being set to undefined???
 
             //TODO Need to add full country name to message instead of code
-
-            //TODO seenCranes not working in backend
-
-            //TODO need to have pop up when query returns 0 to be dialog and not alert
-
         }
 
         initData();
@@ -303,7 +293,7 @@ const CraneCanvas = () => {
                         return stringImg
                     })}
                 </Grid>   
-                <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div> 
+                <div id="craneMenuDiv"><CraneMenu id="craneMenu" setNoCraneOpen={setNoCraneOpen} countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div> 
             </Grid>         
         </div>
             <Collapse in={noCraneOpen}>
