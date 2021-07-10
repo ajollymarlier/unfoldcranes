@@ -6,6 +6,8 @@ import CraneMenu from './CraneMenu'
 import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Collapse} from '@material-ui/core'
 import {Alert} from '@material-ui/lab'
 
+import * as Constants from './Constants';
+
 
 //import anime from 'animejs/lib/anime.es.js' 
 
@@ -16,6 +18,16 @@ const getCraneNumber = (craneName) => {
     }
 
     return parseInt(craneName)
+}
+
+const getCountryFullName = (countryCode) => {
+    for (let i = 0; i < Constants.countryCodes.length; i++){
+        if (Constants.countryCodes[i].substring(0, 3) === countryCode){
+            return Constants.countryCodes[i].substring(3, Constants.countryCodes.length)
+        }
+    }
+
+    return ""
 }
 
 //Adds click listener to each image of a crane
@@ -152,7 +164,7 @@ const CraneCanvas = () => {
                 maxWidth='sm'
             >
                 <DialogTitle id="alert-dialog-title">
-                    {currentDisplayedInfo.name + ", " + currentDisplayedInfo.country}
+                    {currentDisplayedInfo.name + ", " + getCountryFullName(currentDisplayedInfo.country)}
                 </DialogTitle>
                 
                 <DialogContent>
