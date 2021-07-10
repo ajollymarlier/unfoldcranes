@@ -1,12 +1,19 @@
 /* eslint-disable no-restricted-globals */
 import '../styles/CraneMenu.css'
 
+import { useState } from 'react'
+
 import { Button, TextField } from '@material-ui/core';
 import {Autocomplete} from '@material-ui/lab'
 import * as Constants from './Constants';
 
+import ReactAnime from 'react-animejs'
+const {Anime, stagger} = ReactAnime
+
 const CraneMenu = (props) => {
-    let currentCountryCode = ""
+    const [menuCurrentCountryCode, setMenuCurrentCountryCode] = useState("")
+
+    //TODO need to clear autocomplete text when blocking refresh
 
     return(
         <div id="craneMenu">
@@ -15,20 +22,43 @@ const CraneMenu = (props) => {
                 getOptionLabel={(code) => code.substring(4, code.length)}
                 onChange={(event, value) => {
                     if (value !== null){
-                        currentCountryCode = value.substring(0, 3)
+                        setMenuCurrentCountryCode(value.substring(0, 3))
                     }else{
-                        currentCountryCode = ""
+                        setMenuCurrentCountryCode("")
                     }
                 }}
                 renderInput={(params) => <TextField {...params} label="Filter By Country" variant="outlined" />}
             />
+            <Anime id="animationContainer"
+                initial={[
+                    {
+                        targets: '#craneString',
+                        translateY: 450,
+                        duration: 2500,
+                        delay: stagger(200, {start: 40})
+                    }
+                ]}
 
-            <Button id="newCranes" onClick={async () => {
-                await props.setCurrentCountryCode(currentCountryCode) //!Clicking same country again queries ""
-
-            }} variant="contained" color="primary">
-                Get New Cranes
-            </Button>
+                _onClick={[
+                    {
+                        targets: '#craneString',
+                        translateY: -450,
+                        duration: 10,
+                    },
+                    {
+                        targets: '#craneString',
+                        translateY: 450,
+                        duration: 2500,
+                        delay: stagger(200, {start: 40})
+                    }
+                ]}
+            > 
+                <Button id="newCranes" onClick={async () => {
+                    await props.setCurrentCountryCode(menuCurrentCountryCode)
+                }} variant="contained" color="primary">
+                    Get New Cranes
+                </Button>
+            </Anime>
         </div>
     )
 }

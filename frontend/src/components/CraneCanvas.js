@@ -3,10 +3,10 @@ import '../styles/CraneCanvas.css'
 
 import {useEffect, useState} from 'react'
 import CraneMenu from './CraneMenu'
-import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button} from '@material-ui/core'
+import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Collapse} from '@material-ui/core'
+import {Alert} from '@material-ui/lab'
 
-import ReactAnime from 'react-animejs'
-const {Anime, stagger} = ReactAnime
+
 //import anime from 'animejs/lib/anime.es.js' 
 
 
@@ -97,6 +97,7 @@ const checkEmptyStringRender = (currentCranes, min, max) => {
 
 const CraneCanvas = () => {
     const [open, setOpen] = useState(false)
+    const [noCraneOpen, setNoCraneOpen] = useState(false)
     const [craneCount, setCraneCount] = useState(0)
     const [currentCranes, setCurrentCranes] = useState([])
     const [currentCountryCode, setCurrentCountryCode] = useState("")
@@ -119,7 +120,7 @@ const CraneCanvas = () => {
             console.log(getCranesList) //TODO remove later 
             
             if (getCranesList.length == 0) {
-                alert("No cranes")
+                setNoCraneOpen(true)
                 setCurrentCountryCode("")
                 return
             }
@@ -128,11 +129,13 @@ const CraneCanvas = () => {
             
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo, setSeenCranes)
 
-            //!Cranes are showing as clicked when they were notx
+            //!Crane names are being set to undefined???
+
+            //TODO Need to add full country name to message instead of code
 
             //TODO seenCranes not working in backend
 
-            //TODO need to have pop up when query returns 0 and block the refresh
+            //TODO need to have pop up when query returns 0 to be dialog and not alert
 
         }
 
@@ -149,6 +152,14 @@ const CraneCanvas = () => {
                 }}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
+                PaperProps={{
+                    style: {
+                        /*backgroundColor: 'Blue',
+                        color: 'white'*/
+                    }
+                }}
+                fullWidth
+                maxWidth='sm'
             >
                 <DialogTitle id="alert-dialog-title">
                     {currentDisplayedInfo.name + ", " + currentDisplayedInfo.country}
@@ -172,30 +183,6 @@ const CraneCanvas = () => {
                 </DialogActions>
             </Dialog>
 
-            <Anime id="animationContainer"
-                initial={[
-                    {
-                        targets: '#craneString',
-                        translateY: 450,
-                        duration: 2500,
-                        delay: stagger(200, {start: 40})
-                    }
-                ]}
-
-                _onUpdate={[
-                    {
-                        targets: '#craneString',
-                        translateY: -450,
-                        duration: 10,
-                    },
-                    {
-                        targets: '#craneString',
-                        translateY: 450,
-                        duration: 2500,
-                        delay: stagger(200, {start: 40})
-                    }
-                ]}
-            >        
             <Grid 
                 id="craneCanvas"
                 container
@@ -315,13 +302,16 @@ const CraneCanvas = () => {
                     {checkEmptyStringRender(currentCranes, 15, 20).map((stringImg, i) => {
                         return stringImg
                     })}
-                </Grid>
-                <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div>
-            </Grid>  
-            </Anime>        
+                </Grid>   
+                <div id="craneMenuDiv"><CraneMenu id="craneMenu" countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div> 
+            </Grid>         
         </div>
+            <Collapse in={noCraneOpen}>
+                <Alert severity="warning" variant="filled" color="warning" onClose={() => {setNoCraneOpen(false)}}>No cranes exist for target country! Showing cranes from all countries. </Alert>
+            </Collapse>
+
             <div>
-                <p class="centered-p">The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note. <br/> <br/>
+                <p className="centered-p">The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note. <br/> <br/>
                 {craneCount} cranes and counting...</p>
             </div>
         </div>
