@@ -66,7 +66,8 @@ const AboutView = () => {
 	const classes = useStyles();
 
 	return (
-		<div>
+		// <Parallax bgImage={require(BackgroundImage)}>
+    <div>
 			<h2>ABOUT UNFOLD</h2>
 			<p>
 				The Unfold project was founded by four University of Toronto students in September 2020. We wanted to
@@ -172,7 +173,8 @@ const AboutView = () => {
 			</p> */}
 
 			<BuyMeACoffee />
-		</div>
+		{/* </Parallax> */}
+    </div>
 	);
 };
 
