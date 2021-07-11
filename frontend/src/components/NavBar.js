@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button, Paper , Grid } from '@material-ui/core'
  import AboutImage from '../about.png'
  import SubmitImage from '../submit.png'
- import HomeImage from '../home.png'
- import UnfoldImage from '../unfold.png'
+ import HomeImage from '../home.svg'
+ import UnfoldImage from '../unfold.svg'
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -13,26 +13,28 @@ const useStyles = makeStyles((theme) => ({
         // flexGrow: 1
     },
     grid:{
-        width: "100%",
-        height: "100%",
+      marginTop: "1%",
+      width: "100%",
+      height: "100%",
     },
     gridItem:{
-      margin: "3%",
-      marginLeft: "3.3%",
+      margin: "2%",
+      marginLeft: "3%",
+      marginBottom: "5%",
       alignSelf: "center",
-      minHeight: "100%",
       minWidth: "10%",
+      padding: '0%'
     },
     unfold:{
       justifySelf: "left",
       height: "100%",
       width: "100%",
-      minHeight: "40px",
-        backgroundImage: `url(${UnfoldImage})`,
-        backgroundColor: "transparent",
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+      minHeight: "50px",
+      backgroundImage: `url(${UnfoldImage})`,
+      backgroundColor: "transparent",
+      backgroundSize: 'contain',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
     },
     canvas:{
         backgroundImage: `url(${HomeImage})`,
@@ -57,11 +59,19 @@ const useStyles = makeStyles((theme) => ({
     },
     button:{
         margin: 0,
+        padding: 0,
+        border: 0,
         minWidth: "100%",
-        minHeight: "100%",
+        minHeight: "25px",
         borderRadius: 0,
-        borderColor: "transparent"
-    }
+        borderColor: "transparent",
+        '&:hover':{
+          backgroundColor: "transparent"
+        },
+        '&:active':{
+          color: "transparent"
+        }
+      }
 }));
 
 const NavBar = (props) => {
@@ -78,7 +88,6 @@ const NavBar = (props) => {
                     elevation={0} 
                     className={classes.unfold}
                     >
-                  {/* <img src="unfold.png" className={classes.unfold}/> */}
                 </Paper></Grid>
 
                 <Grid item className={classes.gridItem} xs={3} sm={1}>
@@ -88,6 +97,7 @@ const NavBar = (props) => {
                     <Button 
                         className={classes.button}
                         variant="outlined"
+                        disableRipple
                         onClick={() => {
                             props.setCurrentPage("CraneCanvas")
                         }}
@@ -102,6 +112,7 @@ const NavBar = (props) => {
                     <Button
                         className={classes.button}
                         variant="outlined"
+                        disableRipple
                         onClick={() => {
                             props.setCurrentPage("AboutView")
                         }}
@@ -116,6 +127,7 @@ const NavBar = (props) => {
                     <Button 
                         className={classes.button}
                         variant="outlined"
+                        disableRipple
                         onClick={() => {
                             props.setCurrentPage("CraneSubmission")
                         }}
@@ -123,39 +135,7 @@ const NavBar = (props) => {
                     </Button>
                 </Paper> </Grid>
 
-                </Grid>
-                {/*<Button 
-                    variant="outlined"
-                    onClick={() => {
-                        props.setCurrentPage("CraneCanvas")
-                    }}
-                >
-                        Home
-                </Button>
-                <Button
-                    variant="outlined"
-                    onClick={() => {
-                        props.setCurrentPage("AboutView")
-                    }}
-               >
-                        About
-                </Button>
-                <Button 
-                    variant="outlined"
-                    onClick={() => {
-                        props.setCurrentPage("CraneSubmission")
-                    }}
-                >
-                        Submit
-                </Button>
-                <Button 
-                    variant="outlined"
-                    onClick={() => {
-                        window.location = "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/donate"
-                    }}
-                >
-                        Donate
-                </Button>*/}
+                </Grid>s
         </div>
     )
 }
