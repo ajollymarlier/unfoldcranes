@@ -32,7 +32,7 @@ const App = () => {
       <Parallax 
         bgImage={imgPath} 
         strength={1000}
-        bgImageStyle={{height:'auto',width:'100%'}}
+        bgImageStyle={{objectFit: 'cover'}}
       >
       <NavBar setCurrentPage={setCurrentPage}/>
       {currentView}
