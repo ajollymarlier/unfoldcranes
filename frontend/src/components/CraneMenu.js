@@ -55,6 +55,7 @@ const CraneMenu = (props) => {
             > 
                 <Button id="newCranes" onClick={async () => {
                     await props.setCurrentCountryCode(menuCurrentCountryCode)
+                    await props.setNoCraneOpen(false)
                 }} variant="contained" color="primary">
                     Get New Cranes
                 </Button>
