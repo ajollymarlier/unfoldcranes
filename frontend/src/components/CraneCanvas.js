@@ -51,7 +51,8 @@ const addCraneClickListeners = (setOpen, currentCranes, setCurrentDisplayedInfo)
         endImages[i].addEventListener('click', (e) => {
             setCurrentDisplayedInfo({
                 message: currentCranes[getCraneNumber(e.currentTarget.id) - 1].message,
-                country: currentCranes[getCraneNumber(e.currentTarget.id) - 1].country
+                country: currentCranes[getCraneNumber(e.currentTarget.id) - 1].country,
+                name: currentCranes[getCraneNumber(e.currentTarget.id) - 1].name
             })
 
             e.currentTarget.src=currentCranes[getCraneNumber(e.currentTarget.id) - 1].backgroundColor + "_end_read_crane.png"
