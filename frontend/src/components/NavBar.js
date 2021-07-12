@@ -6,6 +6,9 @@ import { Button, Paper , Grid } from '@material-ui/core'
  import SubmitImage from '../submit.png'
  import HomeImage from '../home.svg'
  import UnfoldImage from '../unfold.svg'
+ import HomeDotImage from '../homedot.png'
+ import AboutDotImage from '../aboutdot.png'
+ import SubmitDotImage from '../submitdot.png'
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -13,17 +16,17 @@ const useStyles = makeStyles((theme) => ({
         // flexGrow: 1
     },
     grid:{
-      marginTop: "1%",
+      margin: "1%",
       width: "100%",
       height: "100%",
     },
     gridItem:{
-      margin: "2%",
-      marginLeft: "3%",
-      marginBottom: "5%",
-      alignSelf: "center",
+      marginTop: '2%',
+      marginBottom: '2%',
+      marginLeft: '3%',
+      marginRight: '3%',
+      alignSelf: "top",
       minWidth: "10%",
-      padding: '0%'
     },
     unfold:{
       justifySelf: "left",
@@ -36,46 +39,65 @@ const useStyles = makeStyles((theme) => ({
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
     },
+    paperButton:{
+      marginTop: "8%",
+      backgroundColor: "transparent",
+      backgroundSize: 'contain',
+      backgroundPosition: 'top',
+      backgroundRepeat: 'no-repeat',
+      // '&:hover':{
+      //   filter: brightness('2%')
+      // }
+    },
     canvas:{
-        backgroundImage: `url(${HomeImage})`,
-        backgroundColor: "transparent",
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+      backgroundImage: `url(${HomeImage})`,
+      '&:hover':{
+      backgroundImage: `url(${HomeDotImage})`,
+      },
+      '&:hover > button':{
+        minHeight: '40px',
+      },
     },
     about:{
-        backgroundImage: `url(${AboutImage})`,
-        backgroundColor: "transparent",
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+      backgroundImage: `url(${AboutImage})`,
+      '&:hover':{
+      backgroundImage: `url(${AboutDotImage})`,
+      },
+      '&:hover > button':{
+        minHeight: '40px',
+      },
     },
     submit:{
-        backgroundImage: `url(${SubmitImage})`,
-        backgroundColor: "transparent",
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+      backgroundImage: `url(${SubmitImage})`,
+      '&:hover':{
+      backgroundImage: `url(${SubmitDotImage})`,
+      },
+      '&:hover > button':{
+        minHeight: '40px',
+      },
     },
     button:{
-        margin: 0,
-        padding: 0,
-        border: 0,
-        minWidth: "100%",
-        minHeight: "25px",
-        borderRadius: 0,
-        borderColor: "transparent",
-        '&:hover':{
-          backgroundColor: "transparent"
-        },
-        '&:active':{
-          color: "transparent"
-        }
+      display: 'block',
+      margin: 0,
+      padding: 0,
+      border: 0,
+      minHeight: '25px',
+      width: '100%',
+      // borderRadius: 0,
+      // borderColor: "transparent",
+      '&:hover':{
+        backgroundColor: "transparent"
+      },
+      '&:active':{
+        color: "transparent"
       }
+    }
 }));
 
 const NavBar = (props) => {
     const classes = useStyles();
+    // const homeButton = document.getElementsByClassName(classes.canvas)
+    // const homeImg = 'home.svg'
     
     return(
         <div id="navBar" className={classes.root}>
@@ -93,7 +115,8 @@ const NavBar = (props) => {
                 <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square 
                     elevation={0}
-                    className={classes.canvas}>
+                    className={`${classes.canvas} ${classes.paperButton}`}
+                    >
                     <Button 
                         className={classes.button}
                         variant="outlined"
@@ -108,7 +131,7 @@ const NavBar = (props) => {
                 <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square
                     elevation={0}
-                    className={classes.about}>
+                    className={`${classes.about} ${classes.paperButton}`}>
                     <Button
                         className={classes.button}
                         variant="outlined"
@@ -123,7 +146,7 @@ const NavBar = (props) => {
                 <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square
                     elevation={0}
-                    className={classes.submit}>
+                    className={`${classes.submit} ${classes.paperButton}`}>
                     <Button 
                         className={classes.button}
                         variant="outlined"
@@ -135,7 +158,7 @@ const NavBar = (props) => {
                     </Button>
                 </Paper> </Grid>
 
-                </Grid>s
+                </Grid>
         </div>
     )
 }
