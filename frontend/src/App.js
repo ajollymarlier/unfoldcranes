@@ -34,7 +34,7 @@ const App = () => {
         strength={1000}
         bgImageStyle={{objectFit: 'cover'}}
       >
-      <NavBar setCurrentPage={setCurrentPage}/>
+      <NavBar currentPage={currentPage} setCurrentPage={setCurrentPage}/>
       {currentView}
       <ContactFooter/>
     </Parallax>

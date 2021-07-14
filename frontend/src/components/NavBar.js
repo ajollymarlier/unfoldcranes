@@ -49,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
       //   filter: brightness('2%')
       // }
     },
+    canvasChosen:{
+      backgroundImage: `url(${HomeDotImage})`,
+      minHeight: '40px',
+    },
     canvas:{
       backgroundImage: `url(${HomeImage})`,
       '&:hover':{
@@ -58,6 +62,10 @@ const useStyles = makeStyles((theme) => ({
         minHeight: '40px',
       },
     },
+    aboutChosen:{
+      backgroundImage: `url(${AboutDotImage})`,
+      minHeight: '40px',
+    },
     about:{
       backgroundImage: `url(${AboutImage})`,
       '&:hover':{
@@ -66,6 +74,10 @@ const useStyles = makeStyles((theme) => ({
       '&:hover > button':{
         minHeight: '40px',
       },
+    },
+    submitChosen:{
+      backgroundImage: `url(${SubmitDotImage})`,
+      minHeight: '40px',
     },
     submit:{
       backgroundImage: `url(${SubmitImage})`,
@@ -115,7 +127,9 @@ const NavBar = (props) => {
                 <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square 
                     elevation={0}
-                    className={`${classes.canvas} ${classes.paperButton}`}
+                    className={(props.currentPage==="CraneCanvas")?
+                    (`${classes.canvasChosen} ${classes.paperButton}`):
+                    (`${classes.canvas} ${classes.paperButton}`)}
                     >
                     <Button 
                         className={classes.button}
@@ -126,12 +140,16 @@ const NavBar = (props) => {
                         }}
                     >
                     </Button>
-                </Paper></Grid>
+                </Paper>
+              </Grid>
 
                 <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square
                     elevation={0}
-                    className={`${classes.about} ${classes.paperButton}`}>
+                    className={(props.currentPage==="AboutView")?
+                    (`${classes.aboutChosen} ${classes.paperButton}`):
+                    (`${classes.about} ${classes.paperButton}`)}
+                    >
                     <Button
                         className={classes.button}
                         variant="outlined"
@@ -146,7 +164,10 @@ const NavBar = (props) => {
                 <Grid item className={classes.gridItem} xs={3} sm={1}>
                 <Paper square
                     elevation={0}
-                    className={`${classes.submit} ${classes.paperButton}`}>
+                    className={(props.currentPage==="CraneSubmission")?
+                    (`${classes.submitChosen} ${classes.paperButton}`):
+                    (`${classes.submit} ${classes.paperButton}`)}
+                    >
                     <Button 
                         className={classes.button}
                         variant="outlined"
