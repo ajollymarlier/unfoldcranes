@@ -7,8 +7,8 @@ const app = express();
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 
-/*const path = require("path")
-app.use(express.static(path.join(__dirname, 'frontend/public')))*/
+const path = require("path")
+app.use(express.static(path.join(__dirname, 'frontend/build')))
 
 // Mongo and Mongoose
 const { ObjectID } = require('mongodb')
@@ -125,9 +125,9 @@ app.get('/craneCount', async (req, res) => {
 })
 
 //Starting path
-/*app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "public", "index.html"));}
-)*/
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));}
+)
 
 // Connection confirmation dialog
 const port = process.env.PORT || 5000
