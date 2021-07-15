@@ -1,4 +1,3 @@
-# covidcranes
+# Unfold
 
-## Backend Local Running Instructions
-TO BE ADDED LATER
+The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note.
