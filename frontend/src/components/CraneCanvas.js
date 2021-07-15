@@ -125,7 +125,6 @@ const CraneCanvas = () => {
             })
 
             let getCranesList = await getCranesRes.json() 
-            console.log(getCranesList) //TODO remove later 
             
             if (getCranesList.length == 0) {
                 setNoCraneOpen(true)
@@ -136,10 +135,6 @@ const CraneCanvas = () => {
             setCurrentCranes(getCranesList)
             
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo)
-
-            //!Crane names are being set to undefined???
-
-            //TODO Need to add full country name to message instead of code
         }
 
         initData();
@@ -212,9 +207,9 @@ const CraneCanvas = () => {
                         }
 
                         if (i === 4){
-                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
+                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"} onMouseEnter={() => {document.getElementById("crane" + (i + 1)).style.opacity = 0.7}} onMouseLeave={() => {document.getElementById("crane" + (i + 1)).style.opacity = 1}}/>
                         }else{
-                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
+                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"} onMouseEnter={() => {document.getElementById("crane" + (i + 1)).style.opacity = 0.7}} onMouseLeave={() => {document.getElementById("crane" + (i + 1)).style.opacity = 1}}/>
                         }
                     })}
 
@@ -240,9 +235,9 @@ const CraneCanvas = () => {
                         }
 
                         if (i === 9){
-                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
+                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"} onMouseEnter={() => {document.getElementById("crane" + (i + 1)).style.opacity = 0.7}} onMouseLeave={() => {document.getElementById("crane" + (i + 1)).style.opacity = 1}}/>
                         }else{
-                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
+                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"} onMouseEnter={() => {document.getElementById("crane" + (i + 1)).style.opacity = 0.7}} onMouseLeave={() => {document.getElementById("crane" + (i + 1)).style.opacity = 1}}/>
                         }
                     })}
 
@@ -268,9 +263,9 @@ const CraneCanvas = () => {
                         }
 
                         if (i === 14){
-                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
+                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"} onMouseEnter={() => {document.getElementById("crane" + (i + 1)).style.opacity = 0.7}} onMouseLeave={() => {document.getElementById("crane" + (i + 1)).style.opacity = 1}}/>
                         }else{
-                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
+                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"} onMouseEnter={() => {document.getElementById("crane" + (i + 1)).style.opacity = 0.7}} onMouseLeave={() => {document.getElementById("crane" + (i + 1)).style.opacity = 1}}/>
                         }
                     })}
 
@@ -296,9 +291,9 @@ const CraneCanvas = () => {
                         }
 
                         if (i === 19){
-                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"}/>
+                            return <img className="endStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_end_unread_crane.png"} onMouseEnter={() => {document.getElementById("crane" + (i + 1)).style.opacity = 0.7}} onMouseLeave={() => {document.getElementById("crane" + (i + 1)).style.opacity = 1}}/>
                         }else{
-                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"}/>
+                            return <img className="midStringImg" id={"crane" + (i + 1)} alt="" src={crane.backgroundColor + "_mid_unread_crane.png"} onMouseEnter={() => {document.getElementById("crane" + (i + 1)).style.opacity = 0.7}} onMouseLeave={() => {document.getElementById("crane" + (i + 1)).style.opacity = 1}}/>
                         }
                     })}
 
@@ -310,7 +305,7 @@ const CraneCanvas = () => {
             </Grid>         
         </div>
             <Collapse in={noCraneOpen}>
-                <Alert severity="warning" variant="filled" color="warning" onClose={() => {setNoCraneOpen(false)}}>No cranes exist for target country! Showing cranes from all countries. </Alert>
+                <Alert severity="warning" variant="filled" color="warning" onClose={() => {setNoCraneOpen(false)}}>No cranes exist for target country! Showing cranes from all countries.</Alert>
             </Collapse>
 
             <div>
