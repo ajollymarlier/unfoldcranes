@@ -27,7 +27,7 @@ const CraneMenu = (props) => {
                         setMenuCurrentCountryCode("")
                     }
                 }}
-                renderInput={(params) => <TextField {...params} label="Filter By Country" variant="outlined" />}
+                renderInput={(params) => <TextField {...params} label="Filter By Country" variant="outlined" placeholder="All"/>}
             />
             <Anime id="animationContainer"
                 initial={[

@@ -3,10 +3,19 @@ import '../styles/CraneCanvas.css'
 
 import {useEffect, useState} from 'react'
 import CraneMenu from './CraneMenu'
-import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Collapse} from '@material-ui/core'
+import {Grid, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Snackbar} from '@material-ui/core'
 import {Alert} from '@material-ui/lab'
+import { createTheme, ThemeProvider } from '@material-ui/core/styles'
 
 import * as Constants from './Constants';
+
+const theme = createTheme({
+    palette: {
+      primary: {
+          main:'#a1b7ea'
+      }
+    },
+  });
 
 
 //import anime from 'animejs/lib/anime.es.js' 
@@ -140,7 +149,7 @@ const CraneCanvas = () => {
     }, [currentCountryCode])
 
     return(
-        <div>
+        <ThemeProvider theme={theme}>
         <div className="content">
             <Dialog
                 open={open}
@@ -297,15 +306,15 @@ const CraneCanvas = () => {
                 <div id="craneMenuDiv"><CraneMenu id="craneMenu" setNoCraneOpen={setNoCraneOpen} countryFilter={filterCountryCranes} setCurrentCountryCode={setCurrentCountryCode}/></div> 
             </Grid>         
         </div>
-            <Collapse in={noCraneOpen}>
+            <Snackbar open={noCraneOpen}>
                 <Alert severity="warning" variant="filled" color="warning" onClose={() => {setNoCraneOpen(false)}}>No cranes exist for target country! Showing cranes from all countries.</Alert>
-            </Collapse>
+            </Snackbar>
 
             <div>
                 <p className="centered-p">The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note. <br/> <br/>
                 {craneCount} cranes and counting...</p>
             </div>
-        </div>
+        </ThemeProvider>
     )
 }
 
