@@ -222,7 +222,6 @@ export const countryCodes = [
     "TZA Tanzania",
     "UGA Uganda",
     "UKR Ukraine",
-    "UMI United States Minor Outlying Islands",
     "URY Uruguay",
     "USA United States of America",
     "UZB Uzbekistan",

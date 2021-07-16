@@ -100,7 +100,6 @@ const checkEmptyStringRender = (currentCranes, min, max) => {
         emptyStrings.push(<img className="emptyStringImg" src="end_empty_string.png"/>)
     }
 
-    console.log(emptyStrings)
     return emptyStrings
 }
 
@@ -150,12 +149,6 @@ const CraneCanvas = () => {
                 }}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
-                PaperProps={{
-                    style: {
-                        /*backgroundColor: 'Blue',
-                        color: 'white'*/
-                    }
-                }}
                 fullWidth
                 maxWidth='sm'
             >
