@@ -34,7 +34,7 @@ class BuyMeACoffee extends React.Component {
 		script.setAttribute('data-id', 'unfold_cranes');
 		script.setAttribute('data-description', 'Thank you for your support!');
 		script.setAttribute('data-message', 'This web is free to use. Do you want to help supporting it?');
-		script.setAttribute('data-color', '#FFDD00');
+		script.setAttribute('data-color', 'rgb(230,202,45)');
 		script.setAttribute('data-position', 'right');
 		script.setAttribute('data-x_margin', '18');
 		script.setAttribute('data-y-margin', '18');
