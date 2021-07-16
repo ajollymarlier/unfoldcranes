@@ -213,7 +213,7 @@ const CraneCanvas = () => {
 
                 <Grid 
                     id="craneString" 
-                    container
+                    container//TODO need to include seenCranes as pass in
                     item
                     direction="column"
                     justify="center"
