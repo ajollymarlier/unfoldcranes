@@ -16,8 +16,8 @@ const ContactFooter = () => {
             <th class="less-padding"><RiMailOpenLine/></th>
             <th>unfoldcranes@gmail.com</th> 
             <th>|</th>
-            <th><FaInstagram/></th>
-            <th><FaFacebookF/></th>
+            <a href="http://www.instagram.com"><th><FaInstagram/></th></a>
+            <a href="http://www.facebook.com"><th><FaFacebookF/></th></a>
           </tr>
           {/* // vertical list - kinda ugly
           <tr> 
