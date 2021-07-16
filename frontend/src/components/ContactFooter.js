@@ -7,17 +7,17 @@ const ContactFooter = () => {
 	return (
 		<div class='footer'>
       <p class='footer-title'>
-        CONTACT
+        CONTACT US
       </p>
 			<p class="footer-text">
 				Have any comments or questions? We'd love to hear from you!
         <table class="icon-list" cellPadding="10">
           <tr>
-            <th class="less-padding"><RiMailOpenLine/></th>
+            <a href="mailto:unfoldcranes@gmail.com"><th class="less-padding"><RiMailOpenLine/></th> </a>
             <th>unfoldcranes@gmail.com</th> 
             <th>|</th>
-            <a href="http://www.instagram.com"><th><FaInstagram/></th></a>
-            <a href="http://www.facebook.com"><th><FaFacebookF/></th></a>
+            <a href="https://www.instagram.com/unfoldcranes/"><th><FaInstagram/></th></a>
+            <a href="https://www.facebook.com/unfoldcranes"><th><FaFacebookF/></th></a>
           </tr>
           {/* // vertical list - kinda ugly
           <tr> 

@@ -143,6 +143,10 @@ const CraneCanvas = () => {
             setCurrentCranes(getCranesList)
             
             addCraneClickListeners(setOpen, getCranesList, setCurrentDisplayedInfo)
+
+            //!Need to add loading spinner for slower speeds
+
+            //!Cranes are running animation before all are fetched when filtering
         }
 
         initData();
