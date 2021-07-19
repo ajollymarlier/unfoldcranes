@@ -2,13 +2,13 @@ import '../styles/NavBar.css'
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Paper , Grid } from '@material-ui/core'
- import AboutImage from '../about.png'
- import SubmitImage from '../submit.png'
+ import AboutImage from '../about.svg'
+ import SubmitImage from '../submit.svg'
  import HomeImage from '../home.svg'
  import UnfoldImage from '../unfold.svg'
- import HomeDotImage from '../homedot.png'
- import AboutDotImage from '../aboutdot.png'
- import SubmitDotImage from '../submitdot.png'
+ import HomeDotImage from '../homedot.svg'
+ import AboutDotImage from '../aboutdot.svg'
+ import SubmitDotImage from '../submitdot.svg'
 
 const useStyles = makeStyles((theme) => ({
     root:{
