@@ -9,6 +9,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridList from '@material-ui/core/GridList';
 import * as Constants from './Constants';
+var bFilter = require('bad-words');
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,6 +46,9 @@ function CraneSubmission() {
         }
         if(!message || !name) {
             shouldSubmit = false;
+        }
+        if(message && bFilter.isProfane(message)) {
+            alert(message + " contains profane language!");
         }
         if(shouldSubmit)
             await fetch('/cranes', {
