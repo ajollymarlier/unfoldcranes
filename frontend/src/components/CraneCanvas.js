@@ -102,11 +102,11 @@ const checkEmptyStringRender = (currentCranes, min, max) => {
     let splitListLength = currentCranes.slice(min, max).length
 
     for (let i = 0; i < 5 - splitListLength - 1; i++){
-        emptyStrings.push(<img className="emptyStringImg" src="mid_empty_string.png"/>)
+        emptyStrings.push(<img className="emptyStringImg" alt="" src="mid_empty_string.png"/>)
     }
 
-    if (5 - splitListLength != 0){
-        emptyStrings.push(<img className="emptyStringImg" src="end_empty_string.png"/>)
+    if (5 - splitListLength !== 0){
+        emptyStrings.push(<img className="emptyStringImg" alt="" src="end_empty_string.png"/>)
     }
 
     return emptyStrings
@@ -134,7 +134,7 @@ const CraneCanvas = () => {
 
             let getCranesList = await getCranesRes.json() 
             
-            if (getCranesList.length == 0) {
+            if (getCranesList.length === 0) {
                 setNoCraneOpen(true)
                 setCurrentCountryCode("")
                 return
