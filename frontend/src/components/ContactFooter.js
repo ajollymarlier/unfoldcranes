@@ -11,13 +11,13 @@ const ContactFooter = () => {
       </p>
 			<p class="footer-text">
 				Have any comments or questions? We'd love to hear from you!
-        <table class="icon-list" cellPadding="10">
+        <table class="icon-list" cellPadding="7">
           <tr>
             <a href="mailto:unfoldcranes@gmail.com"><th class="less-padding"><RiMailOpenLine/></th> </a>
-            <th>unfoldcranes@gmail.com</th> 
-            <th>|</th>
             <a href="https://www.instagram.com/unfoldcranes/"><th><FaInstagram/></th></a>
             <a href="https://www.facebook.com/unfoldcranes"><th><FaFacebookF/></th></a>
+            <th>|</th>
+            <th>unfoldcranes</th> 
           </tr>
           {/* // vertical list - kinda ugly
           <tr> 
