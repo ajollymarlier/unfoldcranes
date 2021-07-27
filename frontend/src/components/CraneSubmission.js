@@ -1,4 +1,4 @@
-import '../styles/CraneSubmission.css'
+import '../styles/CraneSubmission.css';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -11,127 +11,152 @@ import GridList from '@material-ui/core/GridList';
 import * as Constants from './Constants';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexWrap: 'wrap',
-        '& .MuiTextField-root': {
-            margin: theme.spacing(1),
-        },
-    },
-    submitButton: {
-      margin: "5%",
-      marginLeft: '2%',
-      color: 'white',
-	    background: 'linear-gradient(45deg, #ff9933 30%, #FF8E53 60%)',
-      width: "30%",
-      alignSelf: "left"
-    }
-  }
-));
-  
+	root: {
+		flexWrap: 'wrap',
+		'& .MuiTextField-root': {
+			margin: theme.spacing(1)
+		}
+	},
+	submitButton: {
+		margin: '5%',
+		marginLeft: '2%',
+		color: 'white',
+		background: 'linear-gradient(45deg, #ff9933 30%, #FF8E53 60%)',
+		width: '30%',
+		alignSelf: 'left'
+	}
+}));
+
 function CraneSubmission() {
-    const classes = useStyles();
-    var [countryCode, setCountryCode] = React.useState('')
-    var [message, setMessage] = React.useState('')
-    var [name, setName] = React.useState('')
-    var [activeColor, setActiveColor] = React.useState(Constants.colorData[0].color)
-    var [submitAttempted, setSubmitAttempted] = React.useState(false)
+	const classes = useStyles();
+	var [ countryCode, setCountryCode ] = React.useState('');
+	var [ message, setMessage ] = React.useState('');
+	var [ name, setName ] = React.useState('');
+	var [ activeColor, setActiveColor ] = React.useState(Constants.colorData[0].color);
+	var [ submitAttempted, setSubmitAttempted ] = React.useState(false);
 
-    var submit = async (event) => {
-        setSubmitAttempted(true);
-        var shouldSubmit = true;
-        if(!countryCode) {
-            shouldSubmit = false;
-            alert("Country cannot be empty")
-        }
-        if(!message || !name) {
-            shouldSubmit = false;
-        }
-        if(shouldSubmit)
-            await fetch('/cranes', {
-                method: 'POST',
-                headers: {"content-type": "application/json"},
-                body: JSON.stringify({
-                    name: name,
-                    message: message,
-                    country: countryCode,
-                    backgroundColor: activeColor,
-                    creationTime: new Date().toLocaleString()
-                })
-            })
-        else {
-            event.stopPropagation();
-            event.preventDefault();
-        }
-    }
+	var submit = async (event) => {
+		var bFilter = require('bad-words');
+		setSubmitAttempted(true);
+		var shouldSubmit = true;
+		if (!countryCode) {
+			shouldSubmit = false;
+			alert('Country cannot be empty');
+		}
+		if (!message || !name) {
+			shouldSubmit = false;
+		}
+		//alert(message + ': ' + bFilter.isProfane('fuck'));
+		if (message && bFilter.isProfane(message)) {
+			alert(message + ' contains profane language!');
+		}
+		alert('hi');
+		if (shouldSubmit)
+			await fetch('/cranes', {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify({
+					name: name,
+					message: message,
+					country: countryCode,
+					backgroundColor: activeColor,
+					creationTime: new Date().toLocaleString()
+				})
+			});
+		else {
+			event.stopPropagation();
+			event.preventDefault();
+		}
+	};
 
-    return (
-        <div>
-            <Grid container alignItems="center" direction="column">
-                <Box width="50%" padding="2%">
-                  <h2>SUBMIT A CRANE</h2>
-                  <p class="centered-p"> 
-                    Unfold you story here!
-                  </p>
-                    <Grid container class="form" 
-                      >
-                        <form className={classes.root} noValidate autoComplete="off" onSubmit={submit}
-                        >
-                        <Grid container direction="column" justify="center">
-                              <Grid container direction="row" justify="flex-start">
-                                <TextField required id="outlined-required" label="Name" 
-                                    error={submitAttempted == true && !name}
-                                    helperText={(submitAttempted == true && !name) ? "Name cannot be empty" : ""}
-                                    onChange={(event) => {
-                                        setName(event.target.value)
-                                }}
-                                />
-                                <Autocomplete
-                                    onChange={(event, value, reason) => {
-                                        if(value)
-                                            setCountryCode(value.substring(0,3))
-                                        else
-                                            setCountryCode("")
-                                    }}
-                                    options={Constants.countryCodes}
-                                    getOptionLabel={(code) => code.substring(4, code.length)}
-                                    style={{ width: 174 }}
-                                    renderInput={(params) => <TextField {...params} label="Country" variant="outlined" />}
-                                />
-                                <TextField
-                                    required
-                                    id="outlined-multiline-static"
-                                    label="Message"
-                                    multiline
-                                    rows={4}
-                                    defaultValue=""
-                                    variant="outlined"
-                                    fullWidth 
-                                    error={submitAttempted == true && !message}
-                                    helperText={(submitAttempted == true && !message) ? "Message cannot be empty" : ""}
-                                    onChange={(event) => {
-                                        setMessage(event.target.value)
-                                    }}
-                                />
-                                </Grid>
-                                <Grid container justify="flex-start">
-                                    <GridList cols={Constants.colorData.length} cellHeight="auto">
-                                        {Constants.colorData.map((item) => 
-                                            <GridListTile key={item.color} onClick={() => {setActiveColor(item.color)}}>
-                                                <img className={item.color == activeColor ? 'active-color color' : 'normal-color color'} srcset={`${item.src}`}/>
-                                            </GridListTile>
-                                            )}
-                                    </GridList>
-                                </Grid>
-                                <Button variant="contained" 
-                                  className={classes.submitButton}
-                                  disableElevation type="submit">Submit</Button>
-                        </Grid>
-                        </form>
-                    </Grid>
-                </Box>
-            </Grid>
-        </div>
-    );
+	return (
+		<div>
+			<Grid container alignItems="center" direction="column">
+				<Box width="50%" padding="2%">
+					<h2>SUBMIT A CRANE</h2>
+					<p class="centered-p">Unfold you story here!</p>
+					<Grid container class="form">
+						<form className={classes.root} noValidate autoComplete="off" onSubmit={submit}>
+							<Grid container direction="column" justify="center">
+								<Grid container direction="row" justify="flex-start">
+									<TextField
+										required
+										id="outlined-required"
+										label="Name"
+										error={submitAttempted == true && !name}
+										helperText={submitAttempted == true && !name ? 'Name cannot be empty' : ''}
+										onChange={(event) => {
+											setName(event.target.value);
+										}}
+									/>
+									<Autocomplete
+										onChange={(event, value, reason) => {
+											if (value) setCountryCode(value.substring(0, 3));
+											else setCountryCode('');
+										}}
+										options={Constants.countryCodes}
+										getOptionLabel={(code) => code.substring(4, code.length)}
+										style={{ width: 174 }}
+										renderInput={(params) => (
+											<TextField {...params} label="Country" variant="outlined" />
+										)}
+									/>
+									<TextField
+										required
+										id="outlined-multiline-static"
+										label="Message"
+										multiline
+										rows={4}
+										defaultValue=""
+										variant="outlined"
+										fullWidth
+										error={submitAttempted == true && !message}
+										helperText={
+											submitAttempted == true && !message ? 'Message cannot be empty' : ''
+										}
+										onChange={(event) => {
+											setMessage(event.target.value);
+										}}
+									/>
+								</Grid>
+								<Grid container justify="flex-start">
+									<GridList cols={Constants.colorData.length} cellHeight="auto">
+										{Constants.colorData.map((item) => (
+											<GridListTile
+												key={item.color}
+												onClick={() => {
+													setActiveColor(item.color);
+												}}
+											>
+												<img
+													className={
+														item.color == activeColor ? (
+															'active-color color'
+														) : (
+															'normal-color color'
+														)
+													}
+													srcset={`${item.src}`}
+												/>
+											</GridListTile>
+										))}
+									</GridList>
+								</Grid>
+								<Button
+									variant="contained"
+									className={classes.submitButton}
+									disableElevation
+									type="submit"
+								>
+									Submit
+								</Button>
+							</Grid>
+						</form>
+					</Grid>
+				</Box>
+			</Grid>
+		</div>
+	);
 }
 
-export default CraneSubmission
+export default CraneSubmission;
