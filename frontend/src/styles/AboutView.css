@@ -22,3 +22,23 @@ p {
 #bmc-wbtn + div {
 	bottom: 15px;
 }
+
+.media-container{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+} 
+
+.person-contact{
+  padding-top: 8%;
+  padding-left: 10%;
+  padding-right: 10%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.person-contact > div > a:link {color: grey;}      /* unvisited link */
+.person-contact > div > a:visited {color: grey;}   /* visited link */
+.person-contact > div > a:hover {color: grey;}     /* mouse over link */
+.person-contact > div > a:active {color: grey;}    /* selected link */

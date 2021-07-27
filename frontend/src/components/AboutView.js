@@ -1,6 +1,8 @@
 import '../styles/AboutView.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card, CardHeader, CardMedia, CardContent, Typography } from '@material-ui/core';
+import { Grid, Card, CardHeader, CardMedia, CardContent, Typography, Avatar } from '@material-ui/core';
+import { FaGithubAlt, FaLinkedinIn } from 'react-icons/fa';
+import { FiMail } from 'react-icons/fi'
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
@@ -9,17 +11,17 @@ const useStyles = makeStyles((theme) => ({
 	},
 	card: {
 		maxWidth: 250,
-		minheight: 400,
-		alignContent: 'center',
-		backgroundColor: 'transparent',
-		boxShadow: 'none',
+		minHeight: '580px',
+		backgroundColor: '#f5f5f5',
+    // bakgroundColor:'transparent',
+		// boxShadow: 'none',
 		fontFamily: 'carrois_gothicregular',
 		color: '#070048'
 	},
 	media: {
 		alignSelf: 'center',
-		width: 250,
-		height: 300
+		width: 150,
+		height: 150
 	}
 }));
 
@@ -31,7 +33,7 @@ class BuyMeACoffee extends React.Component {
 		let script = document.createElement('script');
 		script.setAttribute('data-name', 'BMC-Widget');
 		script.src = 'https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js';
-		script.setAttribute('data-id', 'unfold_cranes');
+		script.setAttribute('data-id', 'unfoldcranes');
 		script.setAttribute('data-description', 'Thank you for your support!');
 		script.setAttribute('data-message', 'This web is free to use. Do you want to help supporting it?');
 		script.setAttribute('data-color', 'rgb(230,202,45)');
@@ -96,17 +98,24 @@ const AboutView = () => {
 				<Grid item>
 					<Card className={classes.card}>
 						<CardHeader title="Arun Jolly Marlier" subheader="Lead developer" />
-						<CardMedia className={classes.media} image="arun.jpg" title="Arun" />
+            <div class='media-container'>
+						<Avatar className={classes.media} src="arun.jpg" alt="Arun" />
+            </div>
 
+            <div class="person-contact">
+                <div>
+                <a href="mailto:arunjm00@gmail.com"><FiMail size={20}/></a>
+                </div>
+                <div>
+                <a href="https://www.github.com/ajollymarlier/"><FaGithubAlt size={20}/></a>
+                </div>
+            </div>
 						<CardContent className={classes.cardContent}>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Arun is a Computer Science student at the University of Toronto. An avid musician, and
 								self-purported tech geek, he strives to find different ways to reach people and affect
 								their lives for the better. Arun co-founded Unfold to achieve this goal and provide a
 								platform where those in need can find comfort in the fact that they are not alone.
-								<br />
-								<br />
-								Email: arunjm00@gmail.com Github: ajollymarlier
 							</Typography>
 						</CardContent>
 					</Card>
@@ -114,34 +123,50 @@ const AboutView = () => {
 				<Grid item>
 					<Card className={classes.card}>
 						<CardHeader title="Jocelyn Tamura" subheader="Graphics Designer" />
-						<CardMedia className={classes.media} image="jocelyn.jpg" title="Jocelyn" />
+            <div class='media-container'>
+						<Avatar className={classes.media} src="jocelyn.jpg" alt="Jocelyn" />
+            </div>
 
+            <div class="person-contact">
+                <div>
+                <a href="mailto:jocelyn.tamura@mail.utoronto.ca"><FiMail size={20}/></a>
+                </div>
+            </div>
 						<CardContent className={classes.cardContent}>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Jocelyn is a Global Health and Anthropology student at the University of Toronto. As an
 								origami workshop volunteer at a children’s hospital, she noticed that origami helped
 								patients and families alike relax and open up about their lives. Jocelyn co-founded
-								Unfold as a way to share the calming effects of origami with others. <br />
-								<br />
-								Email: jocelyn.tamura@mail.utoronto.ca
-							</Typography>
+								Unfold as a way to share the calming effects of origami with others.
+              </Typography>
 						</CardContent>
 					</Card>
 				</Grid>
 				<Grid item>
 					<Card className={classes.card}>
 						<CardHeader title="Andrew Feng" subheader="Frontend developer" />
-						<CardMedia className={classes.media} image="andrew.jpg" title="Andrew" />
+            <div class='media-container'>
+						<Avatar className={classes.media} src="andrew.jpg" alt="Andrew" />
+            </div>
 
+            <div class="person-contact">
+                <div>
+                <a href="mailto:andrewfengnull@gmail.com"><FiMail size={20}/></a>
+                </div>
+                <div>
+                <a href="https://www.github.com/andrewfeng123/"><FaGithubAlt size={20}/></a>
+                </div>
+                <div>
+                  <a href="https://www.linkedin.com/in/andrew-feng-null/"><FaLinkedinIn size={20}/> </a>
+                </div>
+            </div>
 						<CardContent>
 							<Typography variant="body2" color="textSecondary" component="p">
-								Andrew studies Computer Science and Mathematics at University of Toronto. He loves
+								Andrew studies CS and Math at University of Toronto. He loves
 								theoretical CS and pure math, but during time off you would see him shredding gnarly
 								trails on his mountain bike. Andrew truly believes that if people communicate genuinely
 								with less judgement, the world would be more bearable. Thus he works on Unfold—a place
-								for genuine stories. <br />
-								<br />
-								Email: andrewfengnull@gmail.com
+								for genuine stories. 
 							</Typography>
 						</CardContent>
 					</Card>
@@ -149,31 +174,34 @@ const AboutView = () => {
 				<Grid item>
 					<Card className={classes.card}>
 						<CardHeader title="Yvonne Yang" subheader="Frontend developer" />
-						<CardMedia className={classes.media} image="yvonne.jpg" title="Yvonne" />
+            <div class='media-container'>
+						<Avatar className={classes.media} src="yvonne.jpg" alt="Yvonne" />
+            </div>
 
+            <div class="person-contact">
+                <div>
+                <a href="mailto:yvonne.y.yang@outlook.com"><FiMail size={20}/></a>
+                </div>
+                <div>
+                <a href="https://www.github.com/yvonne-yang/"><FaGithubAlt size={20}/></a>
+                </div>
+                <div>
+                  <a href="https://www.linkedin.com/in/yvonne-y-yang/"><FaLinkedinIn size={20}/> </a>
+                </div>
+            </div>
 						<CardContent className={classes.cardContent}>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Yvonne is in Computer Engineering at the University of Toronto. As someone who loves
-								programming as much as art, she enjoyed contributing to this project, which also
-								conveniently serves a great cause. When not burying her nose in overpriced textbooks,
+								programming as much as art, she enjoyed contributing to this project. When not burying her nose in overpriced textbooks,
 								Yvonne is mostly found in a couch with a good book and her cat, or on a bike blasting
-								Tchaikovsky piano concerto in her ears.<br />
-								<br />
-								Email: yvonnnnovy@gmail.com Github: yvonne-yang
+								Tchaikovsky piano concerto in her ears.
 							</Typography>
 						</CardContent>
 					</Card>
 				</Grid>
 			</Grid>
-			{/* <h2>CONTACT</h2>
-			<p id="contact">
-				Have any comments or questions? We'd love to hear from you!<br />
-				<br />
-				Our email: unfoldcranes@gmail.com
-			</p> */}
 
 			<BuyMeACoffee />
-		{/* </Parallax> */}
     </div>
 	);
 };

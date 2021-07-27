@@ -34,7 +34,7 @@
   padding-left:0;
 }
 
-a:link {color: white;}      /* unvisited link */
-a:visited {color: white;}   /* visited link */
-a:hover {color: white;}     /* mouse over link */
-a:active {color: white;}    /* selected link */
+.icon-list>tr>a:link {color: white;}      /* unvisited link */
+.icon-list>tr>a:visited {color: white;}   /* visited link */
+.icon-list>tr>a:hover {color: white;}     /* mouse over link */
+.icon-list>tr>a:active {color: white;}    /* selected link */
