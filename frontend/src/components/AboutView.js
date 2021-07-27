@@ -1,22 +1,22 @@
 import '../styles/AboutView.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card, CardHeader, CardMedia, CardContent, Typography, Avatar } from '@material-ui/core';
+import { Grid, Card, CardHeader, CardContent, Typography, Avatar } from '@material-ui/core';
 import { FaGithubAlt, FaLinkedinIn } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi'
 import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		flexGrow: 1
+		flexGrow: 1,
+    paddingLeft: '10%',
+    paddingRight: '10%',
 	},
 	card: {
-		maxWidth: 250,
-		minHeight: '580px',
-		backgroundColor: '#f5f5f5',
-    // bakgroundColor:'transparent',
-		// boxShadow: 'none',
-		fontFamily: 'carrois_gothicregular',
-		color: '#070048'
+    // background: 'linear-gradient(45deg, #e3fab4 30%, #f3f2b3  50%)',
+    // background: 'linear-gradient(45deg, #faf3cd  30%, #f7e2c6 50%)',
+		background: 'linear-gradient(45deg, #d4f7fa 30%, #b4e2fa 60%)',
+    height: '100%',
+		// fontFamily: 'carrois_gothicregular',
 	},
 	media: {
 		alignSelf: 'center',
@@ -69,7 +69,7 @@ const AboutView = () => {
 
 	return (
 		// <Parallax bgImage={require(BackgroundImage)}>
-    <div>
+		<div>
 			<h2>ABOUT UNFOLD</h2>
 			<p>
 				The Unfold project was founded by four University of Toronto students in September 2020. We wanted to
@@ -92,11 +92,11 @@ const AboutView = () => {
 				className={classes.root}
 				alignItems="flex-start"
 				direction="row"
-				justify="center"
-				spacing={2}
+				justify="flex-start"
+				spacing={7}
 			>
-				<Grid item>
-					<Card className={classes.card}>
+				<Grid item xs={12} sm={6} md={6} lg={3}>
+					<Card className={classes.card} elevation={10}>
 						<CardHeader title="Arun Jolly Marlier" subheader="Lead developer" />
             <div class='media-container'>
 						<Avatar className={classes.media} src="arun.jpg" alt="Arun" />
@@ -109,8 +109,11 @@ const AboutView = () => {
                 <div>
                 <a href="https://www.github.com/ajollymarlier/"><FaGithubAlt size={20}/></a>
                 </div>
+                <div>
+                  <a href="https://www.linkedin.com/in/arunjollymarlier"><FaLinkedinIn size={20}/> </a>
+                </div>
             </div>
-						<CardContent className={classes.cardContent}>
+						<CardContent className={classes.cardContent} elevation={5}>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Arun is a Computer Science student at the University of Toronto. An avid musician, and
 								self-purported tech geek, he strives to find different ways to reach people and affect
@@ -120,8 +123,8 @@ const AboutView = () => {
 						</CardContent>
 					</Card>
 				</Grid>
-				<Grid item>
-					<Card className={classes.card}>
+				<Grid item xs={12} sm={6} md={6} lg={3}>
+					<Card className={classes.card} elevation={5}>
 						<CardHeader title="Jocelyn Tamura" subheader="Graphics Designer" />
             <div class='media-container'>
 						<Avatar className={classes.media} src="jocelyn.jpg" alt="Jocelyn" />
@@ -131,8 +134,11 @@ const AboutView = () => {
                 <div>
                 <a href="mailto:jocelyn.tamura@mail.utoronto.ca"><FiMail size={20}/></a>
                 </div>
+                <div>
+                  <a href="https://www.linkedin.com/in/jocelynktamura/"><FaLinkedinIn size={20}/> </a>
+                </div>
             </div>
-						<CardContent className={classes.cardContent}>
+						<CardContent className={classes.cardContent} elevation={5}>
 							<Typography variant="body2" color="textSecondary" component="p">
 								Jocelyn is a Global Health and Anthropology student at the University of Toronto. As an
 								origami workshop volunteer at a children’s hospital, she noticed that origami helped
@@ -142,8 +148,8 @@ const AboutView = () => {
 						</CardContent>
 					</Card>
 				</Grid>
-				<Grid item>
-					<Card className={classes.card}>
+				<Grid item xs={12} sm={6} md={6} lg={3}>
+					<Card className={classes.card} elevation={5}>
 						<CardHeader title="Andrew Feng" subheader="Frontend developer" />
             <div class='media-container'>
 						<Avatar className={classes.media} src="andrew.jpg" alt="Andrew" />
@@ -162,8 +168,7 @@ const AboutView = () => {
             </div>
 						<CardContent>
 							<Typography variant="body2" color="textSecondary" component="p">
-								Andrew studies CS and Math at University of Toronto. He loves
-								theoretical CS and pure math, but during time off you would see him shredding gnarly
+								Andrew studies CS and Math at University of Toronto. He loves theory, but during time off you would see him shredding gnarly
 								trails on his mountain bike. Andrew truly believes that if people communicate genuinely
 								with less judgement, the world would be more bearable. Thus he works on Unfold—a place
 								for genuine stories. 
@@ -171,8 +176,8 @@ const AboutView = () => {
 						</CardContent>
 					</Card>
 				</Grid>
-				<Grid item>
-					<Card className={classes.card}>
+				<Grid item xs={12} sm={6} md={6} lg={3}>
+					<Card className={classes.card} elevation={10}>
 						<CardHeader title="Yvonne Yang" subheader="Frontend developer" />
             <div class='media-container'>
 						<Avatar className={classes.media} src="yvonne.jpg" alt="Yvonne" />

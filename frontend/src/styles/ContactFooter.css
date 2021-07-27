@@ -3,7 +3,7 @@
   margin-top: 2%;
   padding-top: 2.5%;
   padding-bottom: 2.5%;
-  background-color: rgb(134, 166, 212);
+  background: linear-gradient(45deg,#79b3e2, rgb(124, 156, 241));
   color: rgb(245, 211, 61);
 }
 
