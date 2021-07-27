@@ -1,22 +1,48 @@
 import '../styles/AboutView.css';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, Card, CardHeader, CardContent, Typography, Avatar } from '@material-ui/core';
+import { Box, Grid, Card, CardHeader, CardContent, Typography, Avatar } from '@material-ui/core';
 import { FaGithubAlt, FaLinkedinIn } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi'
 import React from 'react';
+import BgImage from '../origami.jpg'
 
 const useStyles = makeStyles((theme) => ({
-	root: {
+  box:{
+    display: 'flex',
+    marginTop: '5%',
+    marginBottom: '5%',
+    marginLeft: '10%',
+    marginRight: '10%',
+		backgroundImage: `url(${BgImage})`,
+    '& > div > p':{
+      margin: '0%',
+      padding: '1%',
+      background: 'white',
+      color: '#0f0f0f',
+    },
+    // '& > div > h2':{
+    //   background: 'white'
+    // },
+    '& > div':{
+      paddingLeft: '2%',
+      paddingRight: '2%',
+      paddingTop: '1%',
+      paddingBottom: '2%',
+      width: '100%',
+      height: '100%',
+      background: 'rgba(255,255,255,0.8)',
+    }
+  },
+	grid: {
 		flexGrow: 1,
-    paddingLeft: '10%',
-    paddingRight: '10%',
-	},
+    // rowGap: '50px',
+  },
 	card: {
     // background: 'linear-gradient(45deg, #e3fab4 30%, #f3f2b3  50%)',
     // background: 'linear-gradient(45deg, #faf3cd  30%, #f7e2c6 50%)',
-		background: 'linear-gradient(45deg, #d4f7fa 30%, #b4e2fa 60%)',
-    height: '100%',
-		// fontFamily: 'carrois_gothicregular',
+		// background: 'linear-gradient(45deg, #d4f7fa 30%, #b4e2fa 60%)',
+    background: 'white',
+    boxShadow: 'none',
 	},
 	media: {
 		alignSelf: 'center',
@@ -70,6 +96,12 @@ const AboutView = () => {
 	return (
 		// <Parallax bgImage={require(BackgroundImage)}>
 		<div>
+      
+      <Box
+        className={classes.box}
+        boxShadow={6}
+        borderRadius={12}>
+          <div>
 			<h2>ABOUT UNFOLD</h2>
 			<p>
 				The Unfold project was founded by four University of Toronto students in September 2020. We wanted to
@@ -85,11 +117,19 @@ const AboutView = () => {
 				-- and that sharing their thoughts here will help them reflect on their lives and have their wishes be
 				granted.
 			</p>
+      </div>
+      </Box>
 
+      <Box
+        className={classes.box}
+        boxShadow={6}
+        borderRadius={12}
+      >
+        <div>
 			<h2>OUR TEAM</h2>
 			<Grid
 				container
-				className={classes.root}
+				className={classes.grid}
 				alignItems="flex-start"
 				direction="row"
 				justify="flex-start"
@@ -205,6 +245,8 @@ const AboutView = () => {
 					</Card>
 				</Grid>
 			</Grid>
+      </div>
+      </Box>
 
 			<BuyMeACoffee />
     </div>
