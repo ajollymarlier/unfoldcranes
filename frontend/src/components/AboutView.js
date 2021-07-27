@@ -4,7 +4,6 @@ import { Box, Grid, Card, CardHeader, CardContent, Typography, Avatar } from '@m
 import { FaGithubAlt, FaLinkedinIn } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi'
 import React from 'react';
-import BgImage from '../origami.jpg'
 
 const useStyles = makeStyles((theme) => ({
   box:{
@@ -13,16 +12,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '5%',
     marginLeft: '10%',
     marginRight: '10%',
-		backgroundImage: `url(${BgImage})`,
+    background: 'white',
     '& > div > p':{
       margin: '0%',
       padding: '1%',
-      background: 'white',
-      color: '#0f0f0f',
+    //   background: 'white',
+    //   color: '#0f0f0f',
     },
-    // '& > div > h2':{
-    //   background: 'white'
-    // },
     '& > div':{
       paddingLeft: '2%',
       paddingRight: '2%',
@@ -30,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: '2%',
       width: '100%',
       height: '100%',
-      background: 'rgba(255,255,255,0.8)',
+      // background: 'rgba(255,255,255,0.8)',
     }
   },
 	grid: {
@@ -41,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     // background: 'linear-gradient(45deg, #e3fab4 30%, #f3f2b3  50%)',
     // background: 'linear-gradient(45deg, #faf3cd  30%, #f7e2c6 50%)',
 		// background: 'linear-gradient(45deg, #d4f7fa 30%, #b4e2fa 60%)',
-    background: 'white',
+    background: 'transparent',
     boxShadow: 'none',
 	},
 	media: {
