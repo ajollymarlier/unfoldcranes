@@ -5,11 +5,11 @@
     margin-top: 5%;
 }
 
-.MuiGridListTile-root .MuiGridListTile-tile {
+.MuiImageListItem-root .MuiImageListItem-tile {
     overflow: visible;
 }
 
-.color.MuiGridListTile-imgFullHeight {
+.color.MuiImageListItem-imgFullHeight {
     width: 25px;
     height: 25px;
     margin: 5px;

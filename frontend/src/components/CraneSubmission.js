@@ -3,11 +3,13 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import {Alert} from '@material-ui/lab';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridList from '@material-ui/core/GridList';
+import ImageListItem from '@material-ui/core/ImageListItem';
+import ImageList from '@material-ui/core/ImageList';
 import * as Constants from './Constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,12 +33,14 @@ function CraneSubmission() {
 	const classes = useStyles();
 	var [ countryCode, setCountryCode ] = React.useState('');
 	var [ message, setMessage ] = React.useState('');
+	var [ profaneWarning, setProfaneWarning ] = React.useState('');
 	var [ name, setName ] = React.useState('');
 	var [ activeColor, setActiveColor ] = React.useState(Constants.colorData[0].color);
 	var [ submitAttempted, setSubmitAttempted ] = React.useState(false);
 
 	var submit = async (event) => {
-		var bFilter = require('bad-words');
+		var Filter = require('bad-words');
+    var bFilter = new Filter();
 		setSubmitAttempted(true);
 		var shouldSubmit = true;
 		if (!countryCode) {
@@ -48,9 +52,9 @@ function CraneSubmission() {
 		}
 		//alert(message + ': ' + bFilter.isProfane('fuck'));
 		if (message && bFilter.isProfane(message)) {
-			alert(message + ' contains profane language!');
+      setProfaneWarning(true);
+			shouldSubmit = false;
 		}
-		alert('hi');
 		if (shouldSubmit)
 			await fetch('/cranes', {
 				method: 'POST',
@@ -120,9 +124,9 @@ function CraneSubmission() {
 									/>
 								</Grid>
 								<Grid container justify="flex-start">
-									<GridList cols={Constants.colorData.length} cellHeight="auto">
+									<ImageList cols={Constants.colorData.length} rowHeight="auto">
 										{Constants.colorData.map((item) => (
-											<GridListTile
+											<ImageListItem
 												key={item.color}
 												onClick={() => {
 													setActiveColor(item.color);
@@ -136,11 +140,11 @@ function CraneSubmission() {
 															'normal-color color'
 														)
 													}
-													srcset={`${item.src}`}
+													srcSet={`${item.src}`}
 												/>
-											</GridListTile>
+											</ImageListItem>
 										))}
-									</GridList>
+									</ImageList>
 								</Grid>
 								<Button
 									variant="contained"
@@ -155,6 +159,9 @@ function CraneSubmission() {
 					</Grid>
 				</Box>
 			</Grid>
+      <Snackbar open={profaneWarning}>
+          <Alert severity="warning" variant="filled" color="warning" onClose={() => {setProfaneWarning(false)}}>Your message contains profane language!</Alert>
+      </Snackbar>
 		</div>
 	);
 }
