@@ -3,8 +3,12 @@
   margin-top: 2%;
   padding-top: 2.5%;
   padding-bottom: 2.5%;
-  background: linear-gradient(45deg,#79b3e2, rgb(124, 156, 241));
-  color: rgb(245, 211, 61);
+  background-color: rgb(125, 150, 219);
+  background-image: url(../circle_bottom_left.png), url(../circle_top_right.png);
+  background-position: bottom left, top right;
+  background-size: contain, contain;
+  background-repeat: no-repeat, no-repeat;
+  color: rgb(41, 36, 16);
 }
 
 .footer-title{
