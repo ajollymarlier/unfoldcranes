@@ -13,7 +13,6 @@ import { Button, Paper , Grid } from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
     root:{
         textAlign: "left",
-        // flexGrow: 1
     },
     grid:{
       margin: "1%",
@@ -45,9 +44,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: 'contain',
       backgroundPosition: 'top',
       backgroundRepeat: 'no-repeat',
-      // '&:hover':{
-      //   filter: brightness('2%')
-      // }
     },
     canvasChosen:{
       backgroundImage: `url(${HomeDotImage})`,
@@ -95,8 +91,6 @@ const useStyles = makeStyles((theme) => ({
       border: 0,
       minHeight: '25px',
       width: '100%',
-      // borderRadius: 0,
-      // borderColor: "transparent",
       '&:hover':{
         backgroundColor: "transparent"
       },
@@ -108,8 +102,6 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = (props) => {
     const classes = useStyles();
-    // const homeButton = document.getElementsByClassName(classes.canvas)
-    // const homeImg = 'home.svg'
     
     return(
         <div id="navBar" className={classes.root}>
