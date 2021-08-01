@@ -1,3 +1,19 @@
+/* add a white background to the headings "About us" and "Our team" */
+/* .about-heading{
+  background-color: white;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.8%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.about-heading > h2{
+  margin: 0;
+} */
+
+
 h2 {
 	text-align: center;
 	color: #f79e46;

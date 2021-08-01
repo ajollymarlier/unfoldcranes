@@ -4,6 +4,7 @@ import { Box, Grid, Card, CardHeader, CardContent, Typography, Avatar } from '@m
 import { FaGithubAlt, FaLinkedinIn } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi'
 import React from 'react';
+import BgImage from '../origami.jpg'
 
 const useStyles = makeStyles((theme) => ({
   box:{
@@ -12,12 +13,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '5%',
     marginLeft: '10%',
     marginRight: '10%',
-    background: 'white',
+    backgroundPosition: 'left center',
+		backgroundImage: `url(${BgImage})`,
     '& > div > p':{
       margin: '0%',
       padding: '1%',
-    //   background: 'white',
-    //   color: '#0f0f0f',
+      background: 'white',
+      color: '#0f0f0f',
     },
     '& > div':{
       paddingLeft: '2%',
@@ -26,18 +28,13 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: '2%',
       width: '100%',
       height: '100%',
-      // background: 'rgba(255,255,255,0.8)',
+      background: 'rgba(255,255,255,0.8)',
     }
   },
 	grid: {
 		flexGrow: 1,
-    // rowGap: '50px',
   },
 	card: {
-    // background: 'linear-gradient(45deg, #e3fab4 30%, #f3f2b3  50%)',
-    // background: 'linear-gradient(45deg, #faf3cd  30%, #f7e2c6 50%)',
-		// background: 'linear-gradient(45deg, #d4f7fa 30%, #b4e2fa 60%)',
-    background: 'transparent',
     boxShadow: 'none',
 	},
 	media: {
@@ -48,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 /* from https://stackoverflow.com/questions/62039217/add-buy-me-a-coffee-widget-to-react-application*/
-//TODO: change data-message maybe
 class BuyMeACoffee extends React.Component {
 	constructor(props) {
 		super(props);
@@ -90,7 +86,6 @@ const AboutView = () => {
 	const classes = useStyles();
 
 	return (
-		// <Parallax bgImage={require(BackgroundImage)}>
 		<div>
       
       <Box
@@ -98,22 +93,24 @@ const AboutView = () => {
         boxShadow={6}
         borderRadius={12}>
           <div>
-			<h2>ABOUT UNFOLD</h2>
-			<p>
-				The Unfold project was founded by four University of Toronto students in September 2020. We wanted to
-				create a way for people to connect during the pandemic. Our vision is that Unfold will provide a safe
-				and welcoming space for people to express themselves, share personal stories, or find solace in others’
-				experiences during this strange time. All the same, we don’t intend for this project to be restricted to
-				the duration of the pandemic — we believe that there is always someone who could use a way to connect
-				with others. <br />
-				<br />
-				We were visually inspired by the Japanese legend of the one thousand paper cranes. This legend promises
-				that a person who folds one thousand origami cranes will be granted a wish. We hope that, over time, our
-				page will be filled with thousands of cranes and thousands of stories from people all around the world
-				-- and that sharing their thoughts here will help them reflect on their lives and have their wishes be
-				granted.
-			</p>
-      </div>
+            <div class="about-heading">
+              <h2>ABOUT UNFOLD</h2>
+            </div>
+            <p>
+              The Unfold project was founded by four University of Toronto students in September 2020. We wanted to
+              create a way for people to connect during the pandemic. Our vision is that Unfold will provide a safe
+              and welcoming space for people to express themselves, share personal stories, or find solace in others’
+              experiences during this strange time. All the same, we don’t intend for this project to be restricted to
+              the duration of the pandemic — we believe that there is always someone who could use a way to connect
+              with others. <br />
+              <br />
+              We were visually inspired by the Japanese legend of the one thousand paper cranes. This legend promises
+              that a person who folds one thousand origami cranes will be granted a wish. We hope that, over time, our
+              page will be filled with thousands of cranes and thousands of stories from people all around the world
+              -- and that sharing their thoughts here will help them reflect on their lives and have their wishes be
+              granted.
+            </p>
+          </div>
       </Box>
 
       <Box
@@ -122,7 +119,9 @@ const AboutView = () => {
         borderRadius={12}
       >
         <div>
-			<h2>OUR TEAM</h2>
+          <div class="about-heading">
+            <h2>OUR TEAM</h2>
+          </div>
 			<Grid
 				container
 				className={classes.grid}
