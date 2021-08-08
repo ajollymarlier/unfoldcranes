@@ -16,8 +16,6 @@ const ContactFooter = () => {
             <a href="mailto:unfoldcranes@gmail.com"><th class="less-padding"><FiMail/></th> </a>
             <a href="https://www.instagram.com/unfoldcranes/"><th><FaInstagram/></th></a>
             <a href="https://www.facebook.com/unfoldcranes"><th><FaFacebookF/></th></a>
-            <th>|</th>
-            <th>unfoldcranes</th> 
           </tr>
         </table>
 			</p>

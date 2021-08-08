@@ -78,13 +78,14 @@ function CraneSubmission() {
 			<Grid container alignItems="center" direction="column">
 				<Box width="50%" padding="2%">
 					<h2>SUBMIT A CRANE</h2>
-					<p class="centered-p">Unfold you story here!</p>
+					<p class="centered-p">Unfold your story here!</p>
 					<Grid container class="form">
 						<form className={classes.root} noValidate autoComplete="off" onSubmit={submit}>
-							<Grid container direction="column" justify="center">
+							<Grid container direction="column" justify="center" >
 								<Grid container direction="row" justify="flex-start">
 									<TextField
 										required
+										variant="outlined"
 										id="outlined-required"
 										label="Name"
 										error={submitAttempted == true && !name}
@@ -92,6 +93,8 @@ function CraneSubmission() {
 										onChange={(event) => {
 											setName(event.target.value);
 										}}
+										className="submissionContent"
+										style={{ backgroundColor:"white" }}
 									/>
 									<Autocomplete
 										onChange={(event, value, reason) => {
@@ -100,10 +103,11 @@ function CraneSubmission() {
 										}}
 										options={Constants.countryCodes}
 										getOptionLabel={(code) => code.substring(4, code.length)}
-										style={{ width: 174 }}
+										style={{ width: 174, backgroundColor: "white" }}
 										renderInput={(params) => (
 											<TextField {...params} label="Country" variant="outlined" />
 										)}
+										className="submissionContent"
 									/>
 									<TextField
 										required
@@ -121,10 +125,12 @@ function CraneSubmission() {
 										onChange={(event) => {
 											setMessage(event.target.value);
 										}}
+										className="submissionContent"
+										style={{ backgroundColor: "white" }}
 									/>
 								</Grid>
-								<Grid container justify="flex-start">
-									<ImageList cols={Constants.colorData.length} rowHeight="auto">
+								<Grid container justify="flex-start" className="submissionContent">
+									<ImageList cols={Constants.colorData.length} rowHeight="auto" style={{ backgroundColor: "white" }}>
 										{Constants.colorData.map((item) => (
 											<ImageListItem
 												key={item.color}

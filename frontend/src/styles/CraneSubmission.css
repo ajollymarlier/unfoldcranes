@@ -3,7 +3,14 @@
     border-radius: 1.5%;
     padding: 3%;
     margin-top: 5%;
+    background-image: url(../origami.jpg);
+    background-size: 700px;
 }
+
+/* .submissionContent{
+    background-color: rgb(112, 128, 163);
+    border-style: "dotted";
+} */
 
 .MuiImageListItem-root .MuiImageListItem-tile {
     overflow: visible;

@@ -97,7 +97,7 @@ const AboutView = () => {
               <h2>ABOUT UNFOLD</h2>
             </div>
             <p>
-              The Unfold project was founded by four University of Toronto students in September 2020. We wanted to
+              The Unfold project was founded by four University of Toronto students in August 2021. We wanted to
               create a way for people to connect during the pandemic. Our vision is that Unfold will provide a safe
               and welcoming space for people to express themselves, share personal stories, or find solace in others’
               experiences during this strange time. All the same, we don’t intend for this project to be restricted to
