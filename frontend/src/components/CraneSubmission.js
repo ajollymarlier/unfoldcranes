@@ -34,6 +34,7 @@ function CraneSubmission() {
 	var [ countryCode, setCountryCode ] = React.useState('');
 	var [ message, setMessage ] = React.useState('');
 	var [ profaneWarning, setProfaneWarning ] = React.useState('');
+	var [ emptyCountryWarning, setEmptyCountryWarning ] = React.useState('');
 	var [ name, setName ] = React.useState('');
 	var [ activeColor, setActiveColor ] = React.useState(Constants.colorData[0].color);
 	var [ submitAttempted, setSubmitAttempted ] = React.useState(false);
@@ -45,14 +46,13 @@ function CraneSubmission() {
 		var shouldSubmit = true;
 		if (!countryCode) {
 			shouldSubmit = false;
-			alert('Country cannot be empty');
+			setEmptyCountryWarning(true)
 		}
 		if (!message || !name) {
 			shouldSubmit = false;
 		}
-		//alert(message + ': ' + bFilter.isProfane('fuck'));
 		if (message && bFilter.isProfane(message)) {
-      setProfaneWarning(true);
+      		setProfaneWarning(true);
 			shouldSubmit = false;
 		}
 		if (shouldSubmit)
@@ -120,8 +120,6 @@ function CraneSubmission() {
 
 			<Grid container alignItems="center" direction="column">
 				<Box width="50%" padding="2%" id="submitModule">
-					
-
 					<h2>SUBMIT A CRANE</h2>
 					<p class="centered-p">Unfold your story here!</p>
 					<Grid container class="form">
@@ -212,6 +210,10 @@ function CraneSubmission() {
 			</Grid>
       <Snackbar open={profaneWarning}>
           <Alert severity="warning" variant="filled" color="warning" onClose={() => {setProfaneWarning(false)}}>Your message contains profane language!</Alert>
+      </Snackbar>
+
+	  <Snackbar open={emptyCountryWarning}>
+          <Alert severity="warning" variant="filled" color="warning" onClose={() => {setEmptyCountryWarning(false)}}>Country cannot be empty!</Alert>
       </Snackbar>
 		</div>
 	);
