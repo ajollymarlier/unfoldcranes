@@ -75,8 +75,53 @@ function CraneSubmission() {
 
 	return (
 		<div>
+			<Grid className="decorCranes" id="decorcrane1" container alignItems="center" direction="column">
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./pink-red_end_unread_crane.png"/>
+			</Grid>
+
+			<Grid className="decorCranes" id="decorcrane2" container alignItems="center" direction="column">
+				<img src="./half_empty_string.png"/>
+				<img src="./green-blue_end_unread_crane.png"/>
+			</Grid>
+
+			<Grid className="decorCranes" id="decorcrane3" container alignItems="center" direction="column">
+				<img src="./three_quarter_empty_string.png"/>
+				<img src="./red-orange_end_unread_crane.png"/>
+			</Grid>
+
+			<Grid className="decorCranes" id="decorcrane4" container alignItems="center" direction="column">
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./yellow-green_end_unread_crane.png"/>
+			</Grid>
+
+			<Grid className="decorCranes" id="decorcrane5" container alignItems="center" direction="column">
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./orange-yellow_end_unread_crane.png"/>
+			</Grid>
+
+			<Grid className="decorCranes" id="decorcrane6" container alignItems="center" direction="column">
+				<img src="./purple-pink_end_unread_crane.png"/>
+			</Grid>
+
+			<Grid className="decorCranes" id="decorcrane7" container alignItems="center" direction="column">
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./mid_empty_string.png"/>
+				<img src="./blue-purple_end_unread_crane.png"/>
+			</Grid>
+
 			<Grid container alignItems="center" direction="column">
-				<Box width="50%" padding="2%">
+				<Box width="50%" padding="2%" id="submitModule">
+					
+
 					<h2>SUBMIT A CRANE</h2>
 					<p class="centered-p">Unfold your story here!</p>
 					<Grid container class="form">
@@ -103,7 +148,7 @@ function CraneSubmission() {
 										}}
 										options={Constants.countryCodes}
 										getOptionLabel={(code) => code.substring(4, code.length)}
-										style={{ width: 174, backgroundColor: "white" }}
+										style={{ width: 174, backgroundColor: "white", paddingRight: 10 }}
 										renderInput={(params) => (
 											<TextField {...params} label="Country" variant="outlined" />
 										)}

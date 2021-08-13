@@ -4,7 +4,57 @@
     padding: 3%;
     margin-top: 5%;
     background-image: url(../origami.jpg);
-    background-size: 700px;
+    background-size: 900px;
+}
+
+#submitModule{
+    position: relative;
+}
+
+.decorCranes img {
+    height: auto;
+    width: 120px;
+}
+
+.decorCranes {
+    position: absolute;
+    width: 10px;
+    
+}
+
+#decorcrane1 {
+    transform: translate(-640px);
+    z-index: 1;
+}
+
+#decorcrane2 {
+    transform: translate(305px) scaleX(-1);
+    z-index: 0;
+}
+
+#decorcrane3 {
+    transform: translate(-300px) scaleX(-1);
+    z-index: 0;
+}
+
+#decorcrane4 {
+    transform: translate(630px);
+    z-index: 0;
+}
+
+#decorcrane5 {
+    transform: translate(580px);
+    z-index: 0;
+}
+
+#decorcrane6 {
+    transform: translate(-420px);
+    z-index: 0;
+}
+
+#decorcrane7 {
+    transform: translate(-590px);
+    z-index: 0;
 }
 
 /* .submissionContent{
