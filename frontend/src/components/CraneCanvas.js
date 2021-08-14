@@ -315,7 +315,9 @@ const CraneCanvas = () => {
             </Snackbar>
 
             <div>
-                <p className="centered-p">The Unfold crane canvas showcases people's stories from all around the world. Click on a crane to read a note. <br/> <br/>
+                <p className="centered-p">The Unfold crane canvas showcases uplifting thoughts and stories submitted by people all around the world. 
+                <br /> Click on a crane to read a note.
+                <br/> <br/>
                 {craneCount} cranes and counting...</p>
             </div>
         </ThemeProvider>

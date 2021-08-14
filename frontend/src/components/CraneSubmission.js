@@ -121,7 +121,7 @@ function CraneSubmission() {
 			<Grid container alignItems="center" direction="column">
 				<Box width="50%" padding="2%" id="submitModule">
 					<h2>SUBMIT A CRANE</h2>
-					<p class="centered-p">Unfold your story here!</p>
+					<p class="centered-p">Have an uplifting message you want to share? Unfold your story here.</p>
 					<Grid container class="form">
 						<form className={classes.root} noValidate autoComplete="off" onSubmit={submit}>
 							<Grid container direction="column" justify="center" >
