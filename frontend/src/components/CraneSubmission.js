@@ -76,46 +76,46 @@ function CraneSubmission() {
 	return (
 		<div>
 			<Grid className="decorCranes" id="decorcrane1" container alignItems="center" direction="column">
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./pink-red_end_unread_crane.png"/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./pink-red_end_unread_crane.png" alt=""/>
 			</Grid>
 
 			<Grid className="decorCranes" id="decorcrane2" container alignItems="center" direction="column">
-				<img src="./half_empty_string.png"/>
-				<img src="./green-blue_end_unread_crane.png"/>
+				<img src="./half_empty_string.png" alt=""/>
+				<img src="./green-blue_end_unread_crane.png" alt=""/>
 			</Grid>
 
 			<Grid className="decorCranes" id="decorcrane3" container alignItems="center" direction="column">
-				<img src="./three_quarter_empty_string.png"/>
-				<img src="./red-orange_end_unread_crane.png"/>
+				<img src="./three_quarter_empty_string.png" alt=""/>
+				<img src="./red-orange_end_unread_crane.png" alt=""/>
 			</Grid>
 
 			<Grid className="decorCranes" id="decorcrane4" container alignItems="center" direction="column">
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./yellow-green_end_unread_crane.png"/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./yellow-green_end_unread_crane.png" alt=""/>
 			</Grid>
 
 			<Grid className="decorCranes" id="decorcrane5" container alignItems="center" direction="column">
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./orange-yellow_end_unread_crane.png"/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./orange-yellow_end_unread_crane.png" alt=""/>
 			</Grid>
 
 			<Grid className="decorCranes" id="decorcrane6" container alignItems="center" direction="column">
-				<img src="./purple-pink_end_unread_crane.png"/>
+				<img src="./purple-pink_end_unread_crane.png" alt=""/>
 			</Grid>
 
 			<Grid className="decorCranes" id="decorcrane7" container alignItems="center" direction="column">
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./mid_empty_string.png"/>
-				<img src="./blue-purple_end_unread_crane.png"/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./mid_empty_string.png" alt=""/>
+				<img src="./blue-purple_end_unread_crane.png" alt=""/>
 			</Grid>
 
 			<Grid container alignItems="center" direction="column">
@@ -131,8 +131,8 @@ function CraneSubmission() {
 										variant="outlined"
 										id="outlined-required"
 										label="Name"
-										error={submitAttempted == true && !name}
-										helperText={submitAttempted == true && !name ? 'Name cannot be empty' : ''}
+										error={submitAttempted && !name}
+										helperText={submitAttempted && !name ? 'Name cannot be empty' : ''}
 										onChange={(event) => {
 											setName(event.target.value);
 										}}
@@ -161,9 +161,9 @@ function CraneSubmission() {
 										defaultValue=""
 										variant="outlined"
 										fullWidth
-										error={submitAttempted == true && !message}
+										error={submitAttempted && !message}
 										helperText={
-											submitAttempted == true && !message ? 'Message cannot be empty' : ''
+											submitAttempted && !message ? 'Message cannot be empty' : ''
 										}
 										onChange={(event) => {
 											setMessage(event.target.value);
@@ -183,13 +183,14 @@ function CraneSubmission() {
 											>
 												<img
 													className={
-														item.color == activeColor ? (
+														item.color === activeColor ? (
 															'active-color color'
 														) : (
 															'normal-color color'
 														)
 													}
 													srcSet={`${item.src}`}
+													alt=""
 												/>
 											</ImageListItem>
 										))}
