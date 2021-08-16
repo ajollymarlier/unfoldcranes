@@ -75,12 +75,12 @@ function CraneSubmission() {
 
 	return (
 		<div>
-			<Grid className="decorCranes" id="decorcrane1" container alignItems="center" direction="column">
+			{/* <Grid className="decorCranes" id="decorcrane1" container alignItems="center" direction="column">
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./pink-red_end_unread_crane.png" alt=""/>
-			</Grid>
+			</Grid> */}
 
 			<Grid className="decorCranes" id="decorcrane2" container alignItems="center" direction="column">
 				<img src="./half_empty_string.png" alt=""/>
@@ -89,40 +89,40 @@ function CraneSubmission() {
 
 			<Grid className="decorCranes" id="decorcrane3" container alignItems="center" direction="column">
 				<img src="./three_quarter_empty_string.png" alt=""/>
-				<img src="./red-orange_end_unread_crane.png" alt=""/>
+				<img src="./blue-purple_end_unread_crane.png" alt=""/>
 			</Grid>
 
-			<Grid className="decorCranes" id="decorcrane4" container alignItems="center" direction="column">
+			{/* <Grid className="decorCranes" id="decorcrane4" container alignItems="center" direction="column">
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./yellow-green_end_unread_crane.png" alt=""/>
-			</Grid>
+			</Grid> */}
 
-			<Grid className="decorCranes" id="decorcrane5" container alignItems="center" direction="column">
+			{/* <Grid className="decorCranes" id="decorcrane5" container alignItems="center" direction="column">
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./orange-yellow_end_unread_crane.png" alt=""/>
-			</Grid>
+			</Grid> */}
 
 			<Grid className="decorCranes" id="decorcrane6" container alignItems="center" direction="column">
 				<img src="./purple-pink_end_unread_crane.png" alt=""/>
 			</Grid>
 
-			<Grid className="decorCranes" id="decorcrane7" container alignItems="center" direction="column">
+			{/* <Grid className="decorCranes" id="decorcrane7" container alignItems="center" direction="column">
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./mid_empty_string.png" alt=""/>
 				<img src="./blue-purple_end_unread_crane.png" alt=""/>
-			</Grid>
+			</Grid> */}
 
 			<Grid container alignItems="center" direction="column">
 				<Box width="50%" padding="2%" id="submitModule">
 					<h2>SUBMIT A CRANE</h2>
 					<p class="centered-p">Have an uplifting message you want to share? Unfold your story here.</p>
-					<Grid container class="form">
+					<Grid container alignContent="center" class="form">
 						<form className={classes.root} noValidate autoComplete="off" onSubmit={submit}>
 							<Grid container direction="column" justify="center" >
 								<Grid container direction="row" justify="flex-start">
@@ -146,9 +146,9 @@ function CraneSubmission() {
 										}}
 										options={Constants.countryCodes}
 										getOptionLabel={(code) => code.substring(4, code.length)}
-										style={{ width: 174, backgroundColor: "white", paddingRight: 10 }}
+										style={{ width: 174 }}
 										renderInput={(params) => (
-											<TextField {...params} label="Country" variant="outlined" />
+											<TextField {...params} label="Country" variant="outlined"/>
 										)}
 										className="submissionContent"
 									/>
@@ -173,7 +173,7 @@ function CraneSubmission() {
 									/>
 								</Grid>
 								<Grid container justify="flex-start" className="submissionContent">
-									<ImageList cols={Constants.colorData.length} rowHeight="auto" style={{ backgroundColor: "white" }}>
+									<ImageList cols={Constants.colorData.length} rowHeight="auto">
 										{Constants.colorData.map((item) => (
 											<ImageListItem
 												key={item.color}
