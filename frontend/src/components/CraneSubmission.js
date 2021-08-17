@@ -107,7 +107,7 @@ function CraneSubmission() {
 			</Grid> */}
 
 			<Grid className="decorCranes" id="decorcrane6" container alignItems="center" direction="column">
-				<img src="./purple-pink_end_unread_crane.png" alt=""/>
+				<img src="./yellow-green_end_unread_crane.png" alt=""/>
 			</Grid>
 
 			{/* <Grid className="decorCranes" id="decorcrane7" container alignItems="center" direction="column">
