@@ -148,7 +148,7 @@ function CraneSubmission() {
 										getOptionLabel={(code) => code.substring(4, code.length)}
 										style={{ width: 174 }}
 										renderInput={(params) => (
-											<TextField {...params} label="Country" variant="outlined"/>
+											<TextField {...params} label="Country" variant="outlined" style={{ backgroundColor: "white" }}/>
 										)}
 										className="submissionContent"
 									/>
