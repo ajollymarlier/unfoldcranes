@@ -21,15 +21,6 @@ const useStyles = makeStyles((theme) => ({
       background: 'white',
       color: '#0f0f0f',
     },
-    '& > div':{
-      paddingLeft: '2%',
-      paddingRight: '2%',
-      paddingTop: '1%',
-      paddingBottom: '2%',
-      width: '100%',
-      height: '100%',
-      background: 'rgba(255,255,255,0.8)',
-    }
   },
 	grid: {
 		flexGrow: 1,
