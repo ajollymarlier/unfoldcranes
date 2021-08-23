@@ -38,9 +38,11 @@
 }
 
 .icon-list{
+  position: relative;
   padding-top: 1%;
   list-style-type: none;
   padding-left: 0%;
+  z-index: 2;
 }
 
 .icon-list>tr>th{
