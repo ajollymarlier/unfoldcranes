@@ -6,8 +6,8 @@ import {FiMail} from 'react-icons/fi'
 const ContactFooter = () => {
 	return (
 		<div class='footer'>
-      <img id="footer-left" src="../circle_bottom_left.png"/>
-      <img id="footer-right" src="../circle_top_right.png"/>
+      <img id="footer-left" src="../circle_bottom_left.png" alt="bottom left circle decoration"/>
+      <img id="footer-right" src="../circle_top_right.png" alt="top right circle decoration"/>
       <p class='footer-title'>
         CONTACT US
       </p>
